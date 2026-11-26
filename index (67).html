@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cuando el tiempo olvidó nuestros nombres</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cuero:#1a1411;--cuero2:#251c17;--papel:#eadfc6;--tinta:#2a2018;--sello:#8e2a35;--sello2:#a93946;--oro:#b8955a}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:radial-gradient(ellipse at 50% 0,var(--cuero2),var(--cuero) 70%) fixed;color:var(--papel);font:1.2rem/1.6 'Cormorant Garamond',Georgia,serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+main{max-width:640px;margin:0 auto;padding:24px 18px 60px}
+h1,h2{font-family:'IM Fell English',Georgia,serif;font-weight:400;line-height:1.15}
+.portada{min-height:90vh;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:28px}
+.portada h1{font-size:clamp(2.2rem,8vw,3.6rem);margin:0}
+.portada em{font-style:italic;color:var(--oro)}
+.nom span{animation:borra 6s ease-in forwards;animation-delay:calc(var(--i)*.55s + 1.5s)}
+@keyframes borra{to{opacity:.07;filter:blur(1.5px)}}
+.sub{font-style:italic;opacity:.8;margin:0}
+button{font:inherit;cursor:pointer;border:0;border-radius:3px;padding:.55em 1.3em;background:var(--sello);color:#f6ead3;letter-spacing:.02em}
+button:hover{background:var(--sello2)}
+button.dos{background:transparent;color:var(--oro);border:1px solid var(--oro)}
+button.dos:hover{background:#ffffff10}
+button:focus-visible,input:focus-visible{outline:2px solid var(--oro);outline-offset:2px}
+.acc{display:flex;flex-direction:column;align-items:center;gap:12px}
+.hoja{background:var(--papel);color:var(--tinta);padding:26px 24px;border-radius:2px;box-shadow:0 10px 30px #0008}
+.hoja h2{margin:0 0 .4em;font-size:1.8rem}
+.hoja p{margin:.7em 0}
+.cap{font-style:italic;color:var(--oro);margin:0 0 10px;text-align:center}
+.carta{border-left:3px solid var(--sello);padding-left:14px;font-style:italic}
+.bar{height:3px;background:#ffffff18;margin-bottom:22px}.bar i{display:block;height:100%;background:var(--oro)}
+.fila{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+input[type=text]{flex:1;min-width:140px;font:inherit;padding:.45em .7em;background:#fff8;border:1px solid #2a201855;color:var(--tinta);border-radius:2px}
+.fb{min-height:1.6em;margin-top:12px;font-style:italic}.ok{color:#2c6b3a}.mal{color:var(--sello)}
+.pista{margin-top:10px;font-size:1rem;border-top:1px dashed #2a201860;padding-top:8px}
+table.g{border-collapse:collapse;margin:14px auto;font-family:'IM Fell English',serif}
+table.g td{width:34px;height:34px;text-align:center;border:1px solid #2a201833;cursor:pointer;font-size:1.2rem}
+table.g td.on{background:#8e2a3540}
+.cr{margin:10px 0}.cr small{display:block;margin-bottom:3px}
+.cr .c{display:flex;gap:2px}
+.cr input{width:34px;height:34px;text-align:center;font:inherit;text-transform:uppercase;background:#fff8;border:1px solid #2a201866;padding:0;border-radius:0;color:var(--tinta)}
+.cr input.k{background:#b8955a77;border-color:var(--sello)}
+.cr.bien input{border-color:#2c6b3a}
+ul.cl{padding-left:1.1em;margin:.5em 0}
+@media(prefers-reduced-motion:reduce){.nom span{animation:none}}
+
+/* Rediseño: novela interactiva de archivo */
+:root{--cuero:#100e0d;--cuero2:#211916;--papel:#f0e5cf;--tinta:#30251d;--sello:#762b32;--sello2:#9a4148;--oro:#c5a36b}
+body{background:
+ radial-gradient(ellipse at 50% 8%,#3a2920 0%,transparent 48%),
+ radial-gradient(ellipse at 50% 100%,#1d1714 0%,#100e0d 68%) fixed;
+ color:#e9ddc7;letter-spacing:.012em}
+main{max-width:760px;padding:28px 22px 72px}
+.portada{min-height:92vh;gap:25px;position:relative}
+.portada:before{content:"";position:absolute;inset:8% 5%;border:1px solid #c5a36b35;pointer-events:none}
+.portada h1{max-width:650px;margin:0 auto;font-size:clamp(2.7rem,9vw,5.1rem);text-shadow:0 4px 24px #0008;letter-spacing:-.025em}
+.portada .sub{font-size:1.15rem;letter-spacing:.08em}
+.portada .sub:first-child{text-transform:uppercase;font-size:.82rem;letter-spacing:.2em;color:var(--oro)}
+.nom span{animation:borra 7s ease-in forwards;animation-delay:calc(var(--i)*.55s + 1.5s)}
+button{border:1px solid #a34a4e;background:linear-gradient(135deg,#87353c,#63252b);padding:.7em 1.5em;box-shadow:0 5px 18px #0004;transition:transform .2s,filter .2s,background .2s}
+button:hover{background:linear-gradient(135deg,#a34850,#793038);transform:translateY(-1px);filter:brightness(1.08)}
+button.dos{border-color:#b8955a;color:#d9bd8b;background:#ffffff08;box-shadow:none}
+.hoja{position:relative;background:linear-gradient(145deg,#f3e9d5,#e6d8bc);padding:clamp(25px,5vw,42px);border:1px solid #c5a36b;box-shadow:0 22px 55px #0008,0 0 0 5px #ffffff08;color:#30251d}
+.hoja:before{content:"";position:absolute;inset:9px;border:1px solid #8e76534a;pointer-events:none}
+.hoja h2{font-size:clamp(2rem,6vw,2.7rem);text-align:center;margin:0 0 22px;color:#4b3027}
+.hoja p{font-size:1.22rem;line-height:1.72}
+.hoja .carta{color:#74313a;border-left-color:#8e2a35}
+.cap{margin:0 auto 15px;text-align:center;text-transform:uppercase;letter-spacing:.17em;font-size:.82rem;color:#d1b47e}
+.bar{height:3px;background:#ffffff18;margin:0 0 18px;border-radius:4px;overflow:hidden}
+.bar i{background:linear-gradient(90deg,#8c343d,#d1b47e);transition:width .35s}
+.fila{justify-content:center}
+input[type=text]{background:#fffaf0;border:1px solid #bba98a}
+.fb{font-size:1.1rem;text-align:center}
+.pista{color:#6b4c36}
+.audio-dock{position:fixed;right:18px;bottom:18px;z-index:5;display:flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid #c5a36b55;border-radius:30px;background:#17110fee;box-shadow:0 8px 24px #0008;font: .9rem Georgia,serif;color:#ddc99f}
+.audio-dock button{padding:5px 11px;font-size:.85rem;border-radius:20px}
+.capitulo{font-size:.9rem;letter-spacing:.13em;text-transform:uppercase;color:#bfa16d;text-align:center;margin:4px 0 12px}
+.restantes{font-style:italic;text-align:center;color:#cdbb98;font-size:.95rem;margin:10px 0 0}
+@media(max-width:520px){main{padding:18px 14px 90px}.hoja{padding:25px 20px}.audio-dock{right:10px;bottom:10px}}
+
+
+/* Ambientación y lectura: interfaz más clara y con pequeños movimientos */
+body{font-family:'Lora',Georgia,serif;line-height:1.72}
+main{max-width:820px}
+h1,h2{font-family:'Lora',Georgia,serif;font-weight:600;letter-spacing:-.025em}
+button,.audio-dock,.hud,.restantes,.cap,.pista,.fb,.cr small{font-family:'Nunito Sans',Arial,sans-serif}
+.hud{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:2px 0 15px}
+.hud-chip{display:inline-flex;align-items:center;gap:8px;max-width:48%;min-height:36px;padding:7px 12px;border:1px solid #c5a36b55;border-radius:3px;background:linear-gradient(135deg,#211915dd,#15110fee);color:#e5d2ad;font:600 .78rem/1.2 'Nunito Sans',sans-serif;letter-spacing:.045em;box-shadow:0 4px 16px #0003}
+.hud-chip:first-child{border-left:2px solid #c5a36b}
+.hud-chip:last-child{border-right:2px solid #8e4248;text-align:right;justify-content:flex-end}
+.hud-chip .mini-icon{color:#d1b47e;font-size:1rem}
+.bar{margin:0 0 23px;height:2px;background:#ffffff20}
+.bar i{height:100%;box-shadow:0 0 10px #d1b47e66}
+.cap{font:600 .76rem 'Nunito Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8b674d;margin:0 0 14px;text-align:center}
+.hoja{overflow:hidden;animation:hojaEntra .65s cubic-bezier(.2,.7,.2,1) both}
+.hoja:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background:repeating-linear-gradient(0deg,transparent 0 31px,#8d76531a 32px)}
+.hoja>*{position:relative;z-index:1}
+.hoja h2{font-size:clamp(1.75rem,5vw,2.45rem);margin-bottom:20px}
+.hoja p{font-size:clamp(1.04rem,2.8vw,1.16rem);line-height:1.85}
+.hoja .carta{display:block;position:relative;margin:20px 0;padding:16px 18px 16px 20px;background:#e6d5b8;border-left:3px solid #8e2a35;color:#71343a;box-shadow:0 5px 16px #49311a18;font-style:italic}
+.hoja .carta:after{content:"";position:absolute;right:12px;bottom:8px;width:23px;height:23px;border:1px solid #9a414866;border-radius:50%;opacity:.45}
+.hoja p:nth-of-type(1){animation:textoEntra .55s .08s both}
+.hoja p:nth-of-type(2){animation:textoEntra .55s .18s both}
+.hoja p:nth-of-type(3){animation:textoEntra .55s .28s both}
+.hoja.acertijo{background:linear-gradient(145deg,#f4ead8,#e8dbc2)}
+.hoja.acertijo h2{padding-bottom:15px;border-bottom:1px solid #9d815044}
+.hoja.acertijo h2:before{content:"✦";display:block;margin-bottom:8px;color:#a27c48;font-size:.8rem;letter-spacing:.3em}
+.fila{margin-top:22px}
+.fila button{min-width:132px}
+input[type=text],.cr input{font-family:'Nunito Sans',Arial,sans-serif}
+input[type=text]{font-size:1rem;padding:.7em .85em}
+table.g td{font-family:'Nunito Sans',Arial,sans-serif;font-weight:600;transition:background .15s,transform .15s}
+table.g td:hover{background:#b8955a55;transform:scale(1.05)}
+table.g td.on{background:#a64b4d55;box-shadow:inset 0 0 0 2px #8e2a3577}
+.fb.ok{animation:acierto .5s ease}
+.pista{background:#efe2ca;padding:12px 14px;border-left:2px solid #b8955a;animation:textoEntra .3s ease both}
+.acc{position:relative}
+.acc:before{content:"";width:48px;height:1px;background:#b8955a66;margin:0 auto 4px}
+.portada:after{content:"✦   ❦   ✦";position:absolute;bottom:8%;left:0;right:0;color:#c5a36b88;font-size:1.1rem;letter-spacing:.5em}
+.portada:before{border:1px solid #c5a36b55;box-shadow:inset 0 0 0 7px #c5a36b0b}
+.audio-dock{font-family:'Nunito Sans',Arial,sans-serif;backdrop-filter:blur(8px)}
+@keyframes hojaEntra{from{opacity:0;transform:translateY(16px) rotateX(1deg)}to{opacity:1;transform:translateY(0) rotateX(0)}}
+@keyframes textoEntra{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes acierto{0%{transform:scale(.98)}55%{transform:scale(1.025)}100%{transform:scale(1)}}
+@media(max-width:520px){
+ .hud-chip{font-size:.7rem;padding:7px 8px;max-width:49%}
+ .hoja p{line-height:1.75}
+}
+@media(prefers-reduced-motion:reduce){
+ .hoja,.hoja p,.fb.ok,.pista{animation:none!important}
+}
+
+
+.logic-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.logic-grid label{display:flex;flex-direction:column;gap:6px;padding:12px;background:#e6d8bc;border:1px solid #bba77f;color:#493629;font:600 .9rem 'Nunito Sans',sans-serif}
+.logic-grid select{width:100%;padding:9px;background:#fffaf0;border:1px solid #bba98a;color:#30251d;font: .95rem 'Nunito Sans',sans-serif}
+@media(max-width:460px){.logic-grid{grid-template-columns:1fr}}
+
+
+.resultado-toggle{
+ position:fixed;top:18px;left:18px;z-index:20;min-width:154px;min-height:58px;
+ display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 18px;
+ border:1px solid #d7b778;border-radius:5px;
+ background:linear-gradient(145deg,#39251d,#17100d);color:#f0dfbd;
+ font:700 1rem 'Nunito Sans',sans-serif;letter-spacing:.04em;
+ box-shadow:0 9px 28px #0008,inset 0 1px #ffffff1a;
+}
+.resultado-toggle:hover{background:linear-gradient(145deg,#56352a,#211511);transform:translateY(-2px)}
+.resultado-panel{
+ position:fixed;inset:0 auto 0 0;width:min(460px,95vw);z-index:31;
+ padding:24px 22px;overflow:auto;color:#30251d;
+ background:radial-gradient(ellipse at 10% 0%,#fff8e5aa,transparent 45%),linear-gradient(145deg,#f5ead5,#e3d1b0);
+ box-shadow:18px 0 45px #0009;transform:translateX(-105%);transition:transform .35s ease;
+}
+.resultado-panel.abierto{transform:translateX(0)}
+.resultado-panel h2{font-family:'Lora',serif;color:#583b2d;margin:20px 0 6px}
+.resultado-item{padding:13px 0;border-bottom:1px dashed #9c805688}
+.resultado-item small{font:600 .72rem 'Nunito Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#936e45}
+.resultado-item h3{font:600 1rem 'Lora',serif;color:#583b2d;margin:5px 0}
+.resultado-item p{margin:5px 0 0;line-height:1.55}
+.resultado-vacio{padding:18px 0;font:italic 1rem 'Lora',serif;color:#765a43}
+.diario-toggle{position:fixed;right:16px;top:18px;z-index:20;border:1px solid #c5a36b99;background:#17110fee;color:#e8d4ad;border-radius:4px;padding:10px 13px;font:600 .85rem 'Nunito Sans',sans-serif;box-shadow:0 6px 20px #0006}
+.diario-toggle .alerta{display:inline-block;margin-left:6px;color:#ffcf72;font-size:1.05rem}
+.diario-panel{position:fixed;inset:0 0 0 auto;width:min(430px,94vw);z-index:30;background:linear-gradient(145deg,#f1e5ce,#dfcfaf);color:#30251d;box-shadow:-18px 0 45px #0009;transform:translateX(105%);transition:transform .35s ease;padding:24px 22px;overflow:auto}
+.diario-panel.abierto{transform:translateX(0)}
+.diario-panel h2{font-family:'Lora',serif;color:#583b2d;margin:20px 0 6px}
+.diario-cierre{float:right;background:#6e2b32;padding:6px 11px}
+.diario-intro{font:italic .95rem 'Lora',serif;color:#765a43;border-bottom:1px solid #9c805655;padding-bottom:14px}
+.diario-entry{padding:14px 0;border-bottom:1px dashed #9c805688}
+.diario-entry small{font:600 .72rem 'Nunito Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#936e45}
+.diario-entry p{margin:7px 0 0;line-height:1.65}
+.solucion-btn{display:block;margin:18px auto 0;background:transparent;color:#75512f;border:1px dashed #9c8056;box-shadow:none;font-size:.88rem}
+.solucion-text{display:none;margin-top:10px;padding:12px 14px;background:#e6d6b8;border-left:3px solid #b8955a;color:#533d2c;font:.95rem/1.6 'Lora',serif}
+.solucion-text.visible{display:block}
+.logic-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.logic-grid label{display:flex;flex-direction:column;gap:6px;padding:12px;background:#e6d8bc;border:1px solid #bba77f;color:#493629;font:600 .9rem 'Nunito Sans',sans-serif}
+.logic-grid select{width:100%;padding:9px;background:#fffaf0;border:1px solid #bba98a;color:#30251d;font:.95rem 'Nunito Sans',sans-serif}
+@media(max-width:520px){.diario-toggle{top:auto;bottom:76px;right:10px}.diario-panel{padding:20px 17px}}
+@media(max-width:460px){.logic-grid{grid-template-columns:1fr}}
+
+
+/* Pulido general de interfaz */
+:root{
+ --fondo-profundo:#0c0a09;
+ --fondo-panel:#1c1512;
+ --oro-claro:#e0c58f;
+ --papel-claro:#f4ead8;
+ --tinta-suave:#624b39;
+}
+html{scroll-behavior:smooth}
+body{
+ background:
+  radial-gradient(ellipse at 50% 12%,#493225 0%,transparent 42%),
+  radial-gradient(ellipse at 10% 85%,#241a16 0%,transparent 38%),
+  linear-gradient(145deg,#100d0b,#17110e 55%,#0c0a09) fixed;
+}
+main{max-width:900px;padding:34px 26px 100px}
+.portada{
+ min-height:94vh;
+ gap:30px;
+ padding:50px 28px;
+}
+.portada:before{
+ inset:6% 3%;
+ border:1px solid #d1b47e66;
+ box-shadow:inset 0 0 0 8px #d1b47e0a,0 0 50px #0003;
+}
+.portada .sub:first-child{
+ color:#d5b77e;
+ font:600 .76rem 'Nunito Sans',sans-serif;
+ letter-spacing:.22em;
+ text-transform:uppercase;
+}
+.portada h1{
+ max-width:760px;
+ font-size:clamp(2.5rem,7.4vw,5.2rem);
+ line-height:1.08;
+ text-wrap:balance;
+}
+.portada .sub{max-width:520px;margin-inline:auto}
+.acc{gap:14px;width:min(100%,360px);margin:8px auto 0}
+.acc button{
+ width:100%;
+ min-height:56px;
+ font:700 .94rem 'Nunito Sans',sans-serif;
+ letter-spacing:.08em;
+ text-transform:uppercase;
+}
+.acc button#e{
+ background:linear-gradient(135deg,#9a4248,#68252c);
+ border:1px solid #d2a66f;
+ box-shadow:0 10px 28px #0006,inset 0 1px #ffffff25;
+}
+.acc button#c{
+ min-height:48px;
+ border-color:#c5a36b99;
+ background:#17110eaa;
+}
+.hud{
+ position:relative;
+ margin:0 0 14px;
+ align-items:stretch;
+}
+.hud-chip{
+ min-height:44px;
+ padding:9px 14px;
+ font-size:.78rem;
+ backdrop-filter:blur(8px);
+}
+.hud-chip:first-child{max-width:58%}
+.hud-chip:last-child{max-width:42%}
+.bar{height:3px;margin-bottom:26px}
+.hoja{
+ border-radius:3px;
+ padding:clamp(28px,5vw,52px);
+ box-shadow:0 26px 70px #0009,0 0 0 1px #f4e4c322;
+}
+.hoja:before{inset:10px}
+.hoja h2{
+ font-size:clamp(1.9rem,4.8vw,2.7rem);
+ line-height:1.16;
+}
+.hoja p{max-width:70ch;margin:1em auto}
+.hoja .carta{max-width:68ch}
+.hoja.acertijo{padding-bottom:34px}
+.hoja.acertijo h2{margin-bottom:24px}
+.hoja.acertijo>p{margin-top:0}
+.fila{gap:12px}
+.fila button{
+ min-height:46px;
+ padding:.68em 1.4em;
+ font-size:.88rem;
+}
+.fila input[type=text]{
+ min-height:48px;
+ border-radius:3px;
+}
+button{
+ border-radius:4px;
+ letter-spacing:.035em;
+}
+button:active{transform:translateY(1px) scale(.99)}
+button:focus-visible,input:focus-visible,select:focus-visible{
+ outline:3px solid #d6b77d;
+ outline-offset:3px;
+}
+.cr{margin:18px 0}
+.cr small{font-size:.84rem;color:#765a42}
+.cr .c{gap:3px}
+.cr input{
+ width:clamp(28px,7vw,39px);
+ height:clamp(32px,7vw,40px);
+ border-radius:2px;
+ font-family:'Nunito Sans',sans-serif;
+ font-weight:700;
+}
+table.g{border-spacing:3px}
+table.g td{
+ width:clamp(28px,7vw,42px);
+ height:clamp(28px,7vw,42px);
+ border:1px solid #806c4e55;
+ border-radius:2px;
+ background:#fff8e9;
+ color:#30251d;
+ font-size:clamp(.85rem,2.8vw,1.15rem);
+}
+.logic-grid{gap:14px}
+.logic-grid label{border-radius:3px;padding:14px}
+.logic-grid select{border-radius:3px;min-height:42px}
+.fb{min-height:2em;padding:4px 8px}
+.fb.ok{font-weight:700}
+.pista{border-radius:0 3px 3px 0}
+.solucion-btn{
+ width:100%;
+ max-width:250px;
+ min-height:42px;
+ border-radius:3px;
+}
+.solucion-text{border-radius:0 3px 3px 0}
+.audio-dock{
+ left:18px;
+ right:auto;
+ bottom:18px;
+ padding:9px 13px;
+ border-color:#d0ad7066;
+ background:linear-gradient(135deg,#211915f5,#100d0bf5);
+}
+.audio-dock span{font-size:.78rem;letter-spacing:.04em}
+.audio-dock button{min-height:34px;padding:5px 12px}
+.diario-toggle{
+ top:18px;
+ right:18px;
+ min-width:154px;
+ min-height:58px;
+ padding:13px 18px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:8px;
+ border:1px solid #d7b778;
+ border-radius:5px;
+ background:linear-gradient(145deg,#39251d,#17100d);
+ color:#f0dfbd;
+ font:700 1rem 'Nunito Sans',sans-serif;
+ letter-spacing:.04em;
+ box-shadow:0 9px 28px #0008,inset 0 1px #ffffff1a;
+}
+.diario-toggle:hover{
+ background:linear-gradient(145deg,#56352a,#211511);
+ transform:translateY(-2px);
+}
+.diario-toggle .alerta{
+ font-size:1.1rem;
+ margin-left:2px;
+}
+.diario-panel{
+ width:min(460px,95vw);
+ background:
+  radial-gradient(ellipse at 90% 0%,#fff8e5aa,transparent 45%),
+  linear-gradient(145deg,#f5ead5,#e3d1b0);
+}
+.diario-entry h3{font-family:'Lora',serif;color:#583b2d;margin:.35em 0}
+.diario-entry p{font-size:1rem}
+.cap{margin:0 auto 16px}
+.restantes{letter-spacing:.02em}
+@media(max-width:620px){
+ main{padding:90px 15px 105px}
+ .portada{min-height:82vh;padding:32px 12px}
+ .portada:before{inset:3% 0}
+ .hud{gap:8px}
+ .hud-chip{font-size:.68rem;min-height:42px;padding:8px 9px}
+ .hud-chip:first-child{max-width:55%}
+ .hud-chip:last-child{max-width:45%}
+ .diario-toggle{
+  top:12px;right:12px;min-width:132px;min-height:48px;
+  padding:9px 13px;font-size:.88rem
+ }
+ .audio-dock{left:10px;right:10px;bottom:10px;justify-content:space-between}
+ .hoja{padding:28px 21px}
+}
+@media(max-width:390px){
+ .portada h1{font-size:2.35rem}
+ .hud-chip{letter-spacing:.01em;font-size:.64rem}
+ .fila{flex-direction:column}
+ .fila button,.fila input{width:100%}
+}
+
+
+.sopa-ayuda{margin:18px auto 10px;padding:10px 13px;max-width:440px;background:#ead9b9;color:#624a34;border-left:3px solid #b18b52;text-align:left;font: .9rem 'Nunito Sans',sans-serif}
+.sopa-grid{margin:14px auto;table-layout:fixed;border-spacing:4px;touch-action:manipulation;user-select:none}
+.sopa-grid td{width:clamp(31px,8vw,48px);height:clamp(31px,8vw,48px);cursor:pointer;font-weight:800;transition:background .12s,transform .12s}
+.sopa-grid td:hover{background:#e8d1a2;transform:scale(1.05)}
+.sopa-grid td.on{background:#b18b52!important;color:#fff!important;box-shadow:inset 0 0 0 2px #76552f;transform:scale(.97)}
+.sopa-grid td.sopa-error{background:#d9b8ad!important}
+.sopa-seleccion{margin:12px auto 4px;color:#765a42;font:.9rem 'Nunito Sans',sans-serif;letter-spacing:.04em}
+.sopa-seleccion b{display:inline-block;min-width:80px;color:#563a27;letter-spacing:.15em}
+@media(max-width:430px){.sopa-grid{border-spacing:2px}.sopa-grid td{width:clamp(29px,9vw,38px);height:clamp(29px,9vw,38px)}}
+
+
+/* ===== Ajustes de legibilidad y contraste de botones ===== */
+button{
+ color:#f7ead3;
+ text-shadow:0 1px 2px #00000055;
+}
+/* Botón principal: el rojo sello se mantiene, pero al pasar el ratón aclara el fondo
+   y el texto se vuelve crema, así nunca se pierde la lectura. */
+button:not(.dos):not(.solucion-btn):not(.resultado-toggle):not(.diario-toggle):not(.diario-cierre):hover{
+ background:linear-gradient(135deg,#b8545b,#8d3a42);
+ border-color:#e3c08a;
+ color:#fff6e6;
+ filter:none;
+ box-shadow:0 8px 22px #0006,inset 0 1px #ffffff33;
+}
+button:not(.dos):not(.solucion-btn):not(.resultado-toggle):not(.diario-toggle):not(.diario-cierre):active{
+ background:linear-gradient(135deg,#9c4048,#6d2a31);
+}
+/* Botón secundario ("dos"): oro sobre cuero oscuro. */
+button.dos{
+ background:#1b1310;
+ border:1px solid #b8955a;
+ color:#e6cd9a;
+}
+button.dos:hover{
+ background:#2e211a;
+ border-color:#e3c08a;
+ color:#fbf0d8;
+ filter:none;
+}
+/* Pista: nunca rojo; oro apagado sobre cuero. */
+button.dos#h{
+ color:#e8d3a6!important;
+ border-color:#b8955a!important;
+ background:#1b1310!important;
+}
+button.dos#h:hover{
+ background:#33241b!important;
+ border-color:#e3c08a!important;
+ color:#fdf3de!important;
+}
+/* Botón de solución dentro del panel de la lupa */
+.solucion-panel-btn{
+ display:block;width:100%;margin:18px 0 6px;padding:14px 16px;
+ background:linear-gradient(145deg,#33241b,#17100d);color:#f0dfbd;
+ border:1px solid #d7b778;border-radius:4px;
+ font:700 .92rem 'Nunito Sans',sans-serif;letter-spacing:.05em;
+ box-shadow:0 6px 18px #0005,inset 0 1px #ffffff1a;
+}
+.solucion-panel-btn:hover{
+ background:linear-gradient(145deg,#55362b,#241713);
+ border-color:#f0d9a6;color:#fff6e6;
+}
+.solucion-panel-caja{
+ margin-top:12px;padding:14px 16px;background:#efe1c6;border-left:3px solid #8e2a35;
+ color:#4e3527;font:.98rem/1.65 'Lora',serif;
+}
+.solucion-panel-caja strong{display:block;margin-bottom:6px;font:700 .74rem 'Nunito Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8e2a35}
+.resultado-aviso{padding:12px 14px;margin:10px 0 0;background:#e6d6b8;border-left:3px solid #8e2a35;color:#533d2c;font:.95rem/1.6 'Lora',serif}
+
+/* Diario: entradas más narrativas, con aire entre ellas y días sin escribir */
+.diario-entry p+p{margin-top:.65em}
+.diario-entry.breve p{font-style:italic;color:#6d5340}
+.diario-silencio{padding:16px 0;text-align:center;color:#8d735a;font:italic .92rem 'Lora',serif;letter-spacing:.04em}
+.diario-silencio:before,.diario-silencio:after{content:"❧";display:block;color:#b39561aa;font-size:.8rem;line-height:1.8}
+
+/* Explicación del cifrado César */
+.cesar-explica{
+ margin:18px 0;padding:16px 18px;background:#e9dabc;border:1px solid #bda275;border-left:4px solid #8e2a35;
+ color:#4a3527;font-size:.98rem;line-height:1.68;box-shadow:0 4px 14px #49311a14;
+}
+.cesar-explica h3{
+ margin:0 0 8px;font:700 .76rem 'Nunito Sans',sans-serif;letter-spacing:.14em;
+ text-transform:uppercase;color:#8e2a35;
+}
+.cesar-explica p{margin:.55em 0;font-size:.98rem;line-height:1.68;max-width:none}
+.cesar-explica .abecedario{
+ font:700 .82rem/1.6 'Nunito Sans',sans-serif;letter-spacing:.06em;color:#5a4030;
+ background:#f4e8d0;border:1px dashed #bda275;padding:8px 10px;overflow-x:auto;white-space:nowrap;
+}
+.cesar-explica .ejemplo{color:#71343a;font-style:italic}
+.cesar-ayuda{
+ margin:16px 0 4px;padding:10px 13px;background:#ead9b9;color:#624a34;
+ border-left:3px solid #b18b52;font:.88rem 'Nunito Sans',sans-serif;
+}
+
+
+/* Sopas de letras: selección corregible */
+.sopa-grid td{position:relative}
+.sopa-grid td.on::after{content:attr(data-orden);position:absolute;top:1px;right:3px;font:700 .58rem 'Nunito Sans',sans-serif;opacity:.85}
+.sopa-grid td.sopa-ok{background:#6f8f5a!important;color:#fff!important;box-shadow:inset 0 0 0 2px #46653a!important;transform:none}
+.sopa-grid td:focus-visible{outline:3px solid #d6b77d;outline-offset:1px}
+.sopa-botones{justify-content:center;margin-top:10px}
+
+/* Cambio de era: carta + viaje en el tiempo */
+.era-overlay{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:18px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#2b1d14 0%,#0c0806 78%);opacity:0;transition:opacity .9s ease;font-family:'Nunito Sans',Arial,sans-serif;color:#ecd9ae}
+.era-overlay.on{opacity:1}
+.era-escena{position:relative;z-index:3;width:100%;max-width:560px;display:flex;flex-direction:column;align-items:center;gap:20px;transition:opacity .7s ease,transform .7s ease}
+.era-overlay.viaje .era-carta-escena{opacity:0;transform:scale(.94) translateY(-18px);pointer-events:none}
+.era-carta{position:relative;width:100%;display:flex;justify-content:center}
+.era-sello{position:absolute;top:50%;left:50%;width:96px;height:96px;margin:-48px 0 0 -48px;z-index:4;pointer-events:none;animation:selloEntra .9s cubic-bezier(.2,.8,.3,1) both;filter:drop-shadow(0 6px 14px #000a)}
+.era-sello .mitad{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c4505c,#7a1f2a 60%,#4e131a)}
+.era-sello .a{clip-path:polygon(0 0,58% 0,44% 35%,60% 55%,42% 100%,0 100%);animation:selloA .8s 1.35s ease-in forwards}
+.era-sello .b{clip-path:polygon(58% 0,100% 0,100% 100%,42% 100%,60% 55%,44% 35%);animation:selloB .8s 1.35s ease-in forwards}
+.era-ico{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#f6ead3;animation:icoFuera .4s 1.25s ease forwards}
+@keyframes selloEntra{from{opacity:0;transform:scale(.2) rotate(-40deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes selloA{to{opacity:0;transform:translate(-90px,70px) rotate(-26deg)}}
+@keyframes selloB{to{opacity:0;transform:translate(90px,70px) rotate(26deg)}}
+@keyframes icoFuera{to{opacity:0;transform:scale(.6)}}
+.era-papel{width:100%;max-height:min(62vh,520px);overflow:auto;text-align:left;background:linear-gradient(145deg,#f3e9d5,#e3d3b2);color:#30251d;border:1px solid #c5a36b;box-shadow:0 22px 60px #000a,inset 0 0 40px #8d765322;padding:clamp(20px,4.5vw,34px);transform-origin:50% 0;opacity:0;animation:desplegar 1.1s 1.5s cubic-bezier(.2,.7,.2,1) forwards;font-family:'Lora',Georgia,serif}
+@keyframes desplegar{0%{opacity:0;transform:perspective(1000px) rotateX(-88deg) scaleY(.2)}40%{opacity:1}100%{opacity:1;transform:perspective(1000px) rotateX(0) scaleY(1)}}
+.era-papel p{margin:.75em 0;font-size:clamp(.98rem,2.6vw,1.1rem);line-height:1.7;opacity:0;animation:eraTexto .8s var(--d,2s) ease both}
+.era-papel .era-lugar{margin-top:0;font:600 .72rem 'Nunito Sans',Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8e2a35;border-bottom:1px solid #8d765355;padding-bottom:9px}
+.era-papel .era-firma{text-align:right;font-style:italic;color:#71343a;margin-bottom:0}
+@keyframes eraTexto{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.era-overlay .era-btn{opacity:0;transition:opacity .8s ease,transform .2s,filter .2s,background .2s}
+.era-overlay .era-btn.lista{opacity:1}
+.era-polvo{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55;transition:opacity 1s}
+.era-overlay.viaje .era-polvo{opacity:1}
+.era-polvo i{position:absolute;bottom:-10px;left:var(--x);width:var(--s);height:var(--s);border-radius:50%;background:#e6c98e;opacity:0;animation:polvo var(--t) linear infinite;animation-delay:var(--w)}
+.era-overlay.pasado .era-polvo i{animation-direction:reverse}
+@keyframes polvo{0%{transform:translate(0,0);opacity:0}15%{opacity:.7}100%{transform:translate(var(--dx),-105vh);opacity:0}}
+.era-vortex{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 1.2s ease;pointer-events:none}
+.era-overlay.viaje .era-vortex{opacity:1}
+.era-vortex:before{content:"";position:absolute;width:150vmax;height:150vmax;background:conic-gradient(from 0deg,transparent 0 20%,#c5a36b18 28%,transparent 36% 60%,#8e2a3524 68%,transparent 76%);animation:eraGiro 7s linear infinite}
+.era-overlay.pasado .era-vortex:before{animation-direction:reverse}
+.era-vortex i{position:absolute;width:min(92vw,92vh);height:min(92vw,92vh);border-radius:50%;border:1px solid #c5a36b66;box-shadow:inset 0 0 40px #c5a36b22;animation:anilloFuera 3.2s linear infinite;animation-delay:calc(var(--k)*-.8s)}
+.era-overlay.pasado .era-vortex i{animation-direction:reverse}
+@keyframes eraGiro{to{transform:rotate(360deg)}}
+@keyframes anilloFuera{0%{transform:scale(.05);opacity:0}15%{opacity:.9}100%{transform:scale(1.25);opacity:0}}
+.era-viaje{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;opacity:0;pointer-events:none;transition:opacity .9s ease .35s}
+.era-overlay.viaje .era-viaje{opacity:1}
+.era-reloj-cara{position:relative;width:min(46vw,170px);aspect-ratio:1;border-radius:50%;border:2px solid #c5a36b;box-shadow:0 0 30px #c5a36b33,inset 0 0 22px #0008;background:repeating-conic-gradient(from 0deg,#c5a36b 0 1deg,transparent 1deg 30deg);transition:opacity .7s ease,transform .7s ease}
+.era-reloj-cara:before{content:"";position:absolute;inset:6px;border-radius:50%;background:#150e0b}
+.era-reloj-cara:after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:#8e2a35;z-index:3}
+.era-mano{position:absolute;left:50%;bottom:50%;width:3px;border-radius:2px;background:#e6c98e;transform-origin:50% 100%;transform:translateX(-50%);z-index:2}
+.era-mano.h{height:26%;width:4px}
+.era-mano.m{height:38%}
+.era-overlay.llegada .era-reloj-cara{opacity:.15;transform:scale(.85)}
+.era-num{font:600 clamp(2.8rem,12vw,4.6rem)/1 'Lora',Georgia,serif;color:#ecd9ae;letter-spacing:.02em;font-variant-numeric:tabular-nums;text-shadow:0 0 30px #c5a36b66}
+.era-llegada{opacity:0;transform:translateY(10px);transition:opacity 1s ease .5s,transform 1s ease .5s}
+.era-overlay.llegada .era-llegada{opacity:1;transform:none}
+.era-llegada h2{margin:0;font-size:clamp(1.8rem,7vw,2.8rem);color:#f3e6c6}
+.era-llegada p{margin:.3em 0 0;font-style:italic;color:#c5a36b;font-size:1.05rem}
+.era-overlay.llegada::after{content:"";position:absolute;inset:0;z-index:5;background:#f3e9d5;pointer-events:none;animation:destello 1.5s ease forwards}
+@keyframes destello{0%{opacity:0}18%{opacity:.85}100%{opacity:0}}
+.era-overlay .era-skip{position:absolute;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:6;background:transparent;border:1px solid #c5a36b88;color:#d9bd8b;padding:.4em 1em;font-size:.85rem;box-shadow:none;opacity:0;pointer-events:none;transition:opacity .6s ease .8s}
+.era-overlay.viaje:not(.llegada) .era-skip{opacity:.8;pointer-events:auto}
+.era-overlay.llegada .era-skip{opacity:0;pointer-events:none;transition:opacity .2s}
+@media(prefers-reduced-motion:reduce){
+ .era-sello{display:none}
+ .era-papel{animation-delay:0s;animation-duration:.4s}
+ .era-vortex:before,.era-vortex i,.era-polvo i{animation:none}
+}
+</style>
+</head>
+<body>
+<main id="m"></main>
+<script>
+const M=document.getElementById('m');
+const N=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+const TOTAL=36; // acertijos totales de la historia
+let i=0,prog=0;
+try{prog=+localStorage.getItem('ctn_v2')||0}catch(e){}
+const save=()=>{try{localStorage.setItem('ctn_v2',Math.max(prog,i))}catch(e){}};
+
+// Música: las dos piezas se alternan y vuelven a empezar en bucle.
+const tracks=['The Final Piece.mp3','The Final Clue.mp3'];
+let trackIndex=0, musicStarted=false, musicMuted=false;
+const music=new Audio(tracks[0]); music.preload='auto'; music.volume=.19;
+music.addEventListener('ended',()=>{trackIndex=(trackIndex+1)%tracks.length;music.src=tracks[trackIndex];if(!musicMuted)music.play().catch(()=>{});updateMusicLabel()});
+function startMusic(){soundAllowed=true;if(musicStarted)return;musicStarted=true;music.play().then(updateMusicLabel).catch(()=>{musicStarted=false})}
+function updateMusicLabel(){const b=document.getElementById('musicToggle');if(b)b.textContent=musicMuted?'Activar música':'Pausar música'}
+function musicDock(){if(!document.getElementById('musicDock')){const dock=document.createElement('div');dock.className='audio-dock';dock.id='musicDock';dock.innerHTML='<span>♪ Banda sonora</span><button id="musicToggle" type="button">Pausar música</button>';document.body.appendChild(dock);document.getElementById('musicToggle').onclick=()=>{musicMuted=!musicMuted;if(musicMuted)music.pause();else if(musicStarted)music.play().catch(()=>{});updateMusicLabel()};updateMusicLabel()}} 
+
+const pageSound=new Audio('pasar-pagina.mp3');pageSound.preload='auto';pageSound.volume=1;pageSound.load();
+// Banda sonora exclusiva del salto de capítulo: entrada y salida con fundido suave.
+const eraSound=new Audio('Temporal Threshold(1).mp3');
+eraSound.preload='auto';eraSound.volume=0;
+let eraSoundFade=null;
+function playEraSound(){
+  if(!soundAllowed)return;
+  if(eraSoundFade)clearInterval(eraSoundFade);
+  try{
+    eraSound.pause();eraSound.currentTime=0;eraSound.volume=0;
+    const attempt=eraSound.play();if(attempt&&attempt.catch)attempt.catch(()=>{});
+    const start=performance.now();
+    eraSoundFade=setInterval(()=>{
+      const p=Math.min(1,(performance.now()-start)/1800);
+      eraSound.volume=.38*p;
+      if(p>=1){clearInterval(eraSoundFade);eraSoundFade=null}
+    },50);
+  }catch(e){}
+}
+function stopEraSound(){
+  if(eraSoundFade)clearInterval(eraSoundFade);
+  const initial=eraSound.volume,start=performance.now();
+  eraSoundFade=setInterval(()=>{
+    const p=Math.min(1,(performance.now()-start)/1400);
+    eraSound.volume=initial*(1-p);
+    if(p>=1){clearInterval(eraSoundFade);eraSoundFade=null;eraSound.pause();eraSound.currentTime=0}
+  },50);
+}
+let soundAllowed=false, skipNextPageSound=false, diary=[];
+try{diary=JSON.parse(localStorage.getItem('ctn_diario_v2')||'[]')}catch(e){diary=[]}
+function diarySeen(){try{return +localStorage.getItem('ctn_diario_visto_v2')||0}catch(e){return 0}}
+function saveDiary(){try{localStorage.setItem('ctn_diario_v2',JSON.stringify(diary))}catch(e){}}
+/* El diario de Clara no comenta cada prueba: solo escribe cuando tiene algo que decir.
+   Por eso hay páginas con dos entradas, otras con una y capítulos enteros en silencio. */
+const DIARIO={"La caja sin remitente": {"fecha": "Martes, 10 de noviembre", "titulo": "La caja", "entradas": ["Han dejado una caja de madera en el portal. Sin remitente, sin mensajería, sin nadie que la haya visto llegar.", "La letra de la nota es la del abuelo. La he comparado con una postal suya de 2014: la misma ese torcida, el mismo punto que se le escapa de la línea. Llevo una hora diciéndome que habrá una explicación razonable. No se me ocurre ninguna."]}, "El libro de cuero negro": {"fecha": "Martes, 10 de noviembre, muy tarde", "titulo": "Dentro", "entradas": ["No he dormido. Dentro de la caja hay un libro de cuero negro, sin título y sin autor, y entre sus páginas hay fotografías de épocas que no deberían estar juntas."]}, "Dos rostros, muchos siglos": {"fecha": "Miércoles, 11 de noviembre", "titulo": "El mismo rostro", "entradas": ["He visto el mismo rostro en tres imágenes separadas por siglos. El mismo. No un parecido: el mismo.", "He cerrado el libro. Lo he vuelto a abrir. Sigue ahí."]}, "La clave de César": {"fecha": "Miércoles, 11 de noviembre, tarde", "titulo": "Números", "entradas": ["He estado una hora con las letras romanas y no se me iba de la cabeza otra cosa: el abuelo me enseñó este juego cuando tenía nueve años. Me decía que los mensajes se esconden, no se cierran con llave.", "¿Por qué me enseñaría eso a mí y no a nadie más?"]}, "La carta del amante": {"fecha": "Jueves, 12 de noviembre", "titulo": "Livia", "entradas": ["La carta es lo peor. Está escrita por alguien que sabía que quizá no volvería a ver a la persona a la que escribía, y aun así habla del futuro como si fuera suyo."]}, "El nombre de la víctima": {"fecha": "Jueves, 12 de noviembre, de madrugada", "titulo": "Un nombre", "entradas": ["Livia. Ya tiene nombre. Llevo media vida estudiando documentos y nunca había sentido que un nombre me mirase de vuelta."]}, "Cuatro sombras en la villa": {"fecha": "Viernes, 13 de noviembre", "titulo": "Cuatro sombras", "entradas": ["El libro no es un archivo. Alguien lo está usando como si fuera una conversación, y yo acabo de contestar."]}, "El mercader de rostro conocido": {"fecha": "Viernes, 13 de noviembre, noche", "titulo": "Druso", "entradas": ["El mercader del grabado es el hombre del fondo de todas las fotografías. Lo he comprobado cuatro veces con la lupa de la facultad.", "Mañana preguntaré en el archivo por el abuelo. No por la caja. Todavía no."]}, "El anillo y un poema": {"fecha": "Domingo, 15 de noviembre", "titulo": "Dos días en blanco", "entradas": ["He intentado trabajar en la tesis. He estado dos horas delante de la misma página.", "Un anillo y un poema escrito la noche antes de morir. No sé qué hacer con esto. No es una tragedia antigua: es una promesa que alguien dejó a medias y que ahora está en mi mesa."]}, "Continuará": {"fecha": "Domingo, 15 de noviembre, 23:40", "titulo": "El sobre", "entradas": ["Alguien ha deslizado un sobre por debajo de mi puerta. La letra es la del libro, no la del abuelo.", "No he llamado a nadie. Primero he cerrado la ventana. Después he pensado en quién sabe que tengo esto."]}, "La ciudad de las campanas": {"fecha": "Lunes, 16 de noviembre", "titulo": "Florencia", "entradas": ["Un billete de tren, pagado, a mi nombre. Abril de 1498 escrito en tinta roja sobre el reverso.", "He hecho la maleta en veinte minutos. Eso también me asusta: lo poco que me ha costado decidirlo."]}, "El taller de los secretos": {"fecha": "Martes, 17 de noviembre, Florencia", "titulo": "Isabella", "entradas": ["En Florencia el libro pesa distinto. Suena exagerado, lo sé. Pero lo llevo en la mochila y juraría que está tibio."]}, "La carta escondida en el marco": {"fecha": "Martes, 17 de noviembre, tarde", "titulo": "Leonardo", "entradas": ["Leonardo no robó el retrato: lo escondió. Es la primera vez en toda la historia que alguien esconde algo para proteger a otra persona y no para salvarse a sí mismo.", "He pensado en el abuelo. En si él también escondió algo así."]}, "El testimonio de Matteo": {"fecha": "Miércoles, 18 de noviembre", "titulo": "Dos versiones", "entradas": ["Matteo dice que oyó la campana desde el patio. Antes había dicho que estaba en el almacén. Puede ser un despiste. O puede ser lo que llevo tres días encontrándome en cada página."]}, "Una firma detrás del lienzo": {"fecha": "Miércoles, 18 de noviembre, noche", "titulo": "A.", "entradas": ["Una firma: «A.», 1889. El abuelo escribió que el rostro no envejece. Lo escribió como una advertencia, no como un hallazgo.", "Quiero llamar a mi madre y preguntarle por él. No lo voy a hacer. No todavía."]}, "El nombre del margen": {"fecha": "Jueves, 19 de noviembre", "titulo": "Aurelio", "entradas": ["Aurelio. Mi abuelo. Su nombre está escrito en el margen de un libro que no debería existir. No sé si me está guiando o si estoy siguiendo algo que él no quería que encontrase."]}, "El sobre de 1889": {"fecha": "Jueves, 19 de noviembre, 02:15", "titulo": "No confiar", "entradas": ["«No confíes en el hombre que restaura los recuerdos.»", "Adrián restaura documentos. Adrián me ha llamado cuatro veces esta semana y le he dicho que estaba cansada."]}};
+function diaryNote(d,idx){
+ if(diary.some(x=>x.idx===idx))return;
+ const n=DIARIO[d.h];
+ if(!n)return; // Clara no escribe en todas las páginas: los silencios también son parte del diario.
+ diary.push({idx,chapter:chapterName(idx),title:n.titulo||d.h,date:n.fecha||new Date().toLocaleDateString('es-ES'),entradas:n.entradas.slice()});
+ saveDiary();
+}
+
+// Clara también deja constancia de lo que siente al cruzar de una época a otra.
+function diaryTravelNote(ch){
+ const idViaje=10000+ch;
+ if(diary.some(x=>x.idx===idViaje))return;
+ const notas={
+  1:{chapter:'Capítulo 1 · Roma, 79 d. C.',title:'Un lugar que no debería existir',date:'Roma, 79 d. C.',entradas:[
+   'No sé cómo describirlo sin que parezca que he perdido la cabeza. Hace un momento estaba en mi habitación, en 2026, y ahora el aire huele a humo, a piedra caliente y a algo dulce que no consigo reconocer. La luz también es distinta. No es una pantalla ni una recreación: el sol me da en la cara y tengo calor de verdad.',
+   'Me siento rarísima. Tengo el estómago revuelto, las piernas un poco flojas y la sensación de haberme despertado dentro de un recuerdo ajeno. La gente pasa a mi lado sin mirarme dos veces. Para ellos pertenezco aquí. Para mí, nada encaja.',
+   'He mirado la fecha tres veces. Setenta y nueve después de Cristo. Si esto es real, estoy caminando por un mundo que hace casi dos mil años que desapareció. Y, aun así, una parte de mí reconoce este lugar. Eso es lo que más miedo me da.'
+  ]},
+  2:{chapter:'Capítulo 2 · Florencia, 1498',title:'El tiempo se me ha quedado dentro',date:'Florencia, abril de 1498',entradas:[
+   'Otra vez esa presión en los oídos, el vuelco en el estómago y unos segundos en los que no sabía dónde terminaba mi cuerpo. El viaje ha sido más corto esta vez, pero no menos extraño. Todavía noto el zumbido en los dientes, como si el tiempo hubiera pasado rozándome demasiado cerca.',
+   'Florencia huele a madera, aceite y lluvia sobre piedra. Las voces tienen otro ritmo; hasta el silencio parece distinto. Me he sorprendido buscando coches, cables, cualquier señal de mi siglo. No hay nada. Solo talleres, campanas y personas que no tienen ni idea de lo que vendrá después.',
+   'Empiezo a temer que no solo estoy viajando a otros años. Cada vez que llego, tardo un poco más en sentir que sigo siendo la misma Clara. Necesito escribirlo para no acostumbrarme.'
+  ]},
+  3:{chapter:'Regreso · Barcelona, 2026',title:'He vuelto, pero no del todo',date:'Barcelona, noviembre de 2026',entradas:[
+   'He vuelto a mi época. Las luces, los motores y el ruido de la calle deberían tranquilizarme, pero todo me parece demasiado rápido y demasiado brillante. He mirado el móvil para comprobar la fecha. 2026. Mi fecha. Aun así, durante un instante he esperado oír las campanas de Florencia.',
+   'Me tiemblan un poco las manos y tengo la impresión absurda de que, si cierro los ojos, volveré a notar el suelo de piedra bajo los pies. Me siento fuera de sitio en mi propia ciudad. La gente sigue con su vida y nadie puede imaginar dónde he estado.',
+   'No sé si el libro me está cambiando o si soy yo quien empieza a mirar el mundo de otra manera. Solo sé que ya no puedo fingir que esto es una investigación normal. Tengo miedo. Y, por debajo del miedo, también quiero saber adónde me llevará la próxima página.'
+  ]}
+ };
+ const n=notas[ch];if(!n)return;
+ diary.push({idx:idViaje,chapter:n.chapter,title:n.title,date:n.date,entradas:n.entradas});
+ saveDiary();
+}
+function updateDiaryBadge(){const a=document.getElementById('diaryAlert');if(a)a.style.display=diary.length>diarySeen()?'inline':'none'}
+function openDiary(){
+ const panel=document.getElementById('diaryPanel');if(!panel)return;
+ const cuerpo=e=>{const t=Array.isArray(e.entradas)?e.entradas:[e.text];return `<p>${t.join('</p><p>')}</p>`};
+ document.getElementById('diaryEntries').innerHTML=diary.length?diary.slice().reverse().map(e=>`<article class="diario-entry${(Array.isArray(e.entradas)&&e.entradas.length===1)?' breve':''}"><small>${e.date}</small><h3>${e.title}</h3>${cuerpo(e)}</article>`).join(''):'<p class="diario-vacio">Clara todavía no ha escrito nada. Todavía está leyendo.</p>';
+ panel.classList.add('abierto');try{localStorage.setItem('ctn_diario_visto_v2',String(diary.length))}catch(e){}updateDiaryBadge();
+}
+function diaryButton(){
+ if(document.getElementById('diaryToggle'))return;
+ const b=document.createElement('button');b.className='diario-toggle';b.id='diaryToggle';b.dataset.id='diaryToggle';b.innerHTML='📖 Diario <span class="alerta" id="diaryAlert">❗</span>';b.onclick=openDiary;document.body.appendChild(b);
+ const panel=document.createElement('aside');panel.className='diario-panel';panel.id='diaryPanel';panel.dataset.id='diaryPanel';panel.innerHTML='<button class="diario-cierre" id="diaryClose">Cerrar</button><h2>Diario de Clara</h2><p class="diario-intro">No escribo todos los días. Solo cuando hay algo que no puedo dejar de pensar.</p><div id="diaryEntries"></div>';document.body.appendChild(panel);
+ document.getElementById('diaryClose').onclick=()=>panel.classList.remove('abierto');updateDiaryBadge();
+}
+
+function openResults(){
+ const panel=document.getElementById('resultadoPanel');if(!panel)return;
+ const actual=D[i];
+ const enAcertijo=!!actual && actual.k==='p';
+ const solved=D.slice(0,Math.min(prog,i)).map((d,idx)=>({d,idx})).filter(x=>x.d.k==='p');
+ const list=document.getElementById('resultadoEntries');
+ const titulo=document.getElementById('resultadoTitulo');
+ const intro=document.getElementById('resultadoIntro');
+ if(titulo)titulo.textContent=enAcertijo?'La página abierta':'Resultados de la investigación';
+ if(intro)intro.textContent=enAcertijo?'Estás resolviendo un acertijo. Si el libro no cede, puedes mirar su solución.':'Las respuestas que Clara ha conseguido descifrar durante el camino.';
+ const bloqueSolucion=enAcertijo&&actual.solution?`<div class="resultado-actual">
+   <article class="resultado-item"><small>${chapterName(i)} · En curso</small><h3>${actual.h}</h3></article>
+   <button class="solucion-panel-btn" id="solutionPanelToggle" type="button">Ver solución</button>
+   <div class="solucion-panel-caja" id="solutionPanelBox" hidden><strong>Solución</strong>${actual.solution}</div>
+   <p class="resultado-aviso">La solución no avanza la historia: Clara tiene que encontrar la respuesta para pasar la página.</p>
+ </div>`:'';
+ list.innerHTML=bloqueSolucion+(solved.length?solved.slice().reverse().map(({d,idx})=>`<article class="resultado-item"><small>${chapterName(idx)} · Acertijo ${D.slice(0,idx+1).filter(x=>x.k==='p').length}</small><h3>${d.h}</h3><p>${d.solution||'Prueba resuelta.'}</p></article>`).join(''):'<p class="resultado-vacio">Todavía no has resuelto ningún acertijo. Las soluciones aparecerán aquí a medida que avances.</p>');
+ const st=document.getElementById('solutionPanelToggle');
+ if(st)st.onclick=()=>{const box=document.getElementById('solutionPanelBox');const abierto=box.hasAttribute('hidden');abierto?box.removeAttribute('hidden'):box.setAttribute('hidden','');st.textContent=abierto?'Ocultar solución':'Ver solución'};
+ panel.classList.add('abierto');
+}
+function resultButton(){
+ if(!document.getElementById('resultadoToggle')){
+  const b=document.createElement('button');b.className='resultado-toggle';b.id='resultadoToggle';b.dataset.id='resultadoToggle';
+  b.innerHTML='<span aria-hidden="true" style="font-size:1.35rem;line-height:1">🔍</span><span class="resultado-label">Resultados</span>';
+  b.title='Ver resultados y soluciones';b.setAttribute('aria-label','Ver resultados y soluciones');b.onclick=openResults;document.body.appendChild(b);
+  const panel=document.createElement('aside');panel.className='resultado-panel';panel.id='resultadoPanel';panel.dataset.id='resultadoPanel';
+  panel.innerHTML='<button class="diario-cierre" id="resultadoClose">Cerrar</button><h2 id="resultadoTitulo">Resultados de la investigación</h2><p class="diario-intro" id="resultadoIntro">Las respuestas que Clara ha conseguido descifrar durante el camino.</p><div id="resultadoEntries"></div>';
+  document.body.appendChild(panel);document.getElementById('resultadoClose').onclick=()=>panel.classList.remove('abierto');
+ }
+ const b=document.getElementById('resultadoToggle');
+ if(b){
+  const enAcertijo=!!D[i]&&D[i].k==='p';
+  const lab=b.querySelector('.resultado-label');
+  if(lab)lab.textContent=enAcertijo?'Solución':'Resultados';
+  else b.innerHTML=`<span aria-hidden="true" style="font-size:1.35rem;line-height:1">🔍</span><span class="resultado-label">${enAcertijo?'Solución':'Resultados'}</span>`;
+  b.title=enAcertijo?'Ver la solución de este acertijo':'Ver resultados y soluciones';
+  b.setAttribute('aria-label',b.title);
+ }
+}
+
+function newPageSound(){
+  if(!soundAllowed)return;
+  try{
+    pageSound.pause();
+    pageSound.currentTime=0;
+    const playAttempt=pageSound.play();
+    if(playAttempt && typeof playAttempt.catch==='function')playAttempt.catch(()=>{});
+  }catch(e){}
+}
+
+function chapterStart(idx){return idx<=7?0:(idx<=28?1:(idx<=54?2:(idx<=70?3:(idx<=74?4:(idx<=78?5:6)))))}
+function chapterName(idx){const c=chapterStart(idx);return ({0:'Prólogo',1:'Capítulo I · Roma',2:'Capítulo II · Florencia',3:'Interludio · Barcelona',4:'Capítulo III · París',5:'Capítulo IV · Viena',6:'Capítulo V · Actualidad'})[c]}
+function chapterPuzzleCount(idx){const ch=chapterStart(idx);return D.slice(idx).filter((x,j)=>x.k==='p' && chapterStart(idx+j)===ch).length}
+function chapterDone(idx){return D.slice(idx+1).some((x,j)=>x.k==='p' && chapterStart(idx+1+j)===chapterStart(idx))===false}
+
+const D=[
+{k:'h',c:'Prólogo',h:'La caja sin remitente',p:[
+'Barcelona, noviembre de 2026. Clara estudia Historia y casi nunca recibe paquetes. Por eso le extraña el que llega un martes: una caja de madera oscura, sin remitente, con una nota clavada en la tapa.',
+'<span class="carta">«Para Clara. Si lees esto, es que yo ya no pude decírtelo en persona.»</span>',
+'La letra es de su abuelo Aurelio, historiador, desaparecido hace años sin dejar rastro. Bajo la tapa, en lugar de una llave, hay una cuadrícula de letras trazada a mano. En una esquina, casi borrada, Clara reconoce la presión de la pluma de su abuelo.']},
+{k:'p',n:1,t:'sopa',solution:"AURELIO: el nombre está escondido en diagonal ascendente, desde la esquina inferior izquierda hacia la derecha.",h:'La cuadrícula de la caja',q:'<p class="carta">Nueve filas. Nueve columnas. Ninguna cifra, ningún signo, ninguna instrucción. Solo una anotación de Aurelio, escrita en el margen: «Lo que buscas no está al final de estas páginas. Ya estaba aquí antes de que las abrieras».</p>Mucho antes de desaparecer, alguien dejó su nombre dentro de esta cuadrícula.',g:['HRRZMTJTV','HVVKBBPXR','DGKKCRROS','CNWTFZIBG','DFBSHLNQT','GHCTEDJJX','DFWRWQJNG','WRUPSVQNT','QABDHTBTD'],a:['aurelio'],sinPista:true},
+{k:'h',h:'La marca de la tapa',p:[
+'La caja tiene un candado de letras y, grabado bajo él, un acertijo. Pero antes de tocarlo, Clara ve otra cosa: una marca a fuego en la tapa, tres palabras en griego antiguo que Aurelio repetía siempre que ella le preguntaba por sus viajes.',
+'Su abuelo la obligaba a traducirla de memoria cada verano: «el tiempo borra lo que no se nombra».',
+'Debajo, en la letra temblorosa de la nota, hay una línea más: «Si dudas de que esto venga de mí, demuéstralo. Escribe el nombre que se esconde bajo la frase.»']},
+{k:'p',n:1,solution:"CRONOS: es el dios griego del tiempo. Aurelio tallaba su nombre junto a cada frase sobre el olvido, como una firma.",h:'La marca de la tapa',q:'Junto a las tres palabras griegas hay un nombre tallado letra a letra, como si alguien lo hubiera repetido muchas veces:<p class="carta"><b>S N O R O C</b></p>Ordénalas. Es el dios que gobierna aquello que todo lo borra.',a:['cronos'],hint:'Es el dios griego del tiempo. Seis letras, con dos O, y acaba en S.'},
+{k:'h',h:'El libro de cuero negro',p:[
+'El candado cede con un chasquido. Dentro, envuelto en un paño, hay un libro de cuero negro: sin título, sin autor. Entre sus páginas, fotografías, cartas y recortes de épocas distintas.',
+'La primera hoja solo trae unas letras desordenadas, escritas con prisa. Clara las lee en voz alta, como si el libro esperase algo.']},
+{k:'p',n:2,solution:"OLVIDO: las letras se ordenan para formar OLVIDO.",h:'La primera página',q:'Ordena las letras: <b>V I D O L O</b><p class="carta">«Es lo que el tiempo hace con los nombres.»</p>',a:['olvido'],hint:'Tiene seis letras y empieza por la O. Lo contrario de recordar.'},
+{k:'h',h:'Dos rostros, muchos siglos',p:[
+'Al pasar la hoja, Clara encuentra un retrato a lápiz: una pareja abrazada. Pasa otra página y ve a la misma pareja, con otra ropa, otro nombre al pie… y otro final.',
+'En cada época se aman. En cada época, uno muere y el otro desaparece. Y en todas las fotografías, al fondo, hay un desconocido con el mismo rostro.',
+'La primera historia empieza con una palabra escrita en clave: sabe que los romanos ya usaban ese truco, y el libro, como si lo supiera, trae una hoja suelta con instrucciones para leerla.']},
+{k:'p',n:3,solution:"POMPEYA: retrocede tres posiciones cada letra de SRPSHBD en el alfabeto español (A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z).",h:'La clave de César',cesar:true,q:'Julio César desplazaba cada letra tres puestos en el alfabeto. Descifra el nombre de la ciudad:<p class="carta"><b>S R P S H B D</b></p>',a:['pompeya'],hint:'Retrocede tres letras: la S pasa a ser P. Alfabeto español, contando la Ñ y sin contar la CH ni la LL.'},
+{k:'h',c:'Roma, 79 d. C.',h:'La carta del amante',p:[
+'<em>Pompeya, a pocos días de la gran erupción.</em> Una joven recibe una carta lacrada. Su amante, Marcelo, la cita en secreto al atardecer. Horas después, ella aparece muerta.',
+'El libro guarda esa carta. Clara la lee y siente un nudo en la garganta: está escrita con una ternura que atraviesa dos mil años.',
+'<span class="carta">«Mi luz: nos veremos en el atrio cuando el año LXXIX deje de contarse en días tranquilos. Trae el anillo. No se lo cuentes a nadie. — M.»</span>']},
+{k:'p',n:4,solution:"79: L vale 50, XX vale 20 e IX vale 9.",h:'La fecha de la carta',q:'La carta data el año en números romanos: <b>LXXIX</b>.<br>¿Qué año es? (en cifras)',a:['79'],hint:'L = 50, X = 10, IX = 9.'},
+{k:'h',h:'La ciudad bajo el monstruo',p:[
+'Entre las cartas hay un papel con una cuadrícula de letras: un juego de niños de la época, o eso parece. Una frase al margen lo cambia todo: «Busca el nombre del volcán que se alza junto a Pompeya: el Vesubio».']},
+{k:'p',n:5,solution:"VESUBIO: aparece al revés en la tercera fila.",h:'Sopa de letras',t:'sopa',q:'La nota ya te ha dado el nombre: <b>VESUBIO</b>. Encuéntralo en la cuadrícula pulsando sus letras. Están juntas, en línea recta, y pueden estar escritas al revés.',g:['TLMARTOS','CNPDFGHJ','OIBUSEVQ','KQXZWYNL','MDRPTCFG','HJKLNBVX','ZWQSTRPD','FGHMNPCL'],a:['vesubio','vesuvio'],hint:'Mira la tercera fila: está escrito al revés. Empieza por la V (casi al final de la fila) y sigue hacia la izquierda.'},
+{k:'h',h:'El nombre de la víctima',p:[
+'Bajo el papel hay una segunda hoja con un crucigrama a medias. El nombre de la joven asesinada está oculto en las casillas marcadas.']},
+{k:'p',n:6,solution:"LIVIA: las letras doradas de VELA, VINO, OLIVO, TRIBUNO y CARTA forman LIVIA.",h:'Crucigrama de Roma',t:'cruz',q:'Rellena las cinco palabras. Las letras de las casillas doradas, de arriba abajo, forman el <b>nombre de la joven</b>.',r:[['Ilumina la noche sin electricidad','vela',2],['Bebida de uva que se sirve en el banquete','vino',1],['Árbol del que sale el aceite','olivo',3],['Magistrado que defendía al pueblo','tribuno',2],['Lo que recibió la joven de su amante','carta',1]],a:['livia'],hint:'Si te atascas: vela, vino, olivo, tribuno, carta.'},
+{k:'h',h:'Cuatro sombras en la villa',p:[
+'Livia. Clara dice el nombre despacio y el libro parece tibio bajo sus dedos. Hay una nota con cuatro sospechosos que estuvieron en la villa aquella noche, cada uno en una estancia distinta, y una frase subrayada: «El asesino estaba junto al cuerpo».',
+'El cuerpo de Livia apareció en la <b>Biblioteca</b>.']},
+{k:'p',n:7,solution:"DRUSO: Tulia estaba en el Jardín, Marco en las Termas y Cayo en el Atrio.",h:'Murdoku de la villa',t:'logic',rooms:['Atrio','Biblioteca','Jardín','Termas'],assignments:{'Marco':'Termas','Cayo':'Atrio','Tulia':'Jardín','Druso':'Biblioteca'},q:'Sospechosos: <b>Marco</b> (gladiador), <b>Cayo</b> (senador), <b>Tulia</b> (esclava) y <b>Druso</b> (mercader). Estancias: Atrio, Biblioteca, Jardín y Termas. Cada uno estaba en una distinta.<ul class="cl"><li>Cayo detesta el agua y las plantas.</li><li>Tulia estaba donde crecen las flores.</li><li>Marco acababa de entrenar y se estaba bañando.</li><li>Druso no pisó el Atrio.</li></ul>¿Quién estaba en la Biblioteca?',a:['druso'],hint:'Tulia: Jardín. Marco: Termas. Cayo solo puede estar en el Atrio o la Biblioteca.'},
+{k:'h',h:'El sello de cera',p:[
+'Druso guardaba sus cartas selladas con cera roja. Clara encuentra un sello roto en dos mitades. En el centro no hay ningún escudo de armas: hay un reloj de arena atravesado por una rosa, el mismo símbolo que corona cada historia del libro.',
+'Alrededor del sello, en letras latinas mayúsculas, hay una palabra revuelta. No pertenece a quien recibe las cartas, sino a quienes las sellan.']},
+{k:'p',n:71,solution:"ORDO: en latín significa «orden». Es el nombre de quienes sellan las cartas con el reloj de arena y la rosa.",h:'El sello revuelto',q:'Alrededor del sello de cera, en mayúsculas latinas:<p class="carta"><b>D R O O</b></p>Ordena las letras. En latín significa aquello a lo que pertenecen quienes usan este sello.',a:['ordo'],hint:'En latín significa lo contrario del caos. De ahí viene la palabra española «orden».'},
+{k:'h',h:'El mercader de rostro conocido',p:[
+'Clara gira el grabado de Druso a la luz de la lámpara. Esa mandíbula, esa mirada… es el desconocido que aparece al fondo de todas las fotografías.',
+'Detrás del grabado, Marcelo dibujó un mapa de huida, pero sin nombres: solo una pista escrita.']},
+{k:'p',n:8,solution:"ORIENTE: las tres indicaciones sitúan el destino al este; el dibujo está dispuesto con el norte abajo, de modo que la rosa de los vientos debe leerse girada.",h:'El mapa sin nombres',q:'Marcelo no escribió nombres en el mapa, solo dejó esta nota junto a la rosa de los vientos:<p class="carta">«La ciudad que buscas queda donde nace el día. En este pergamino el mar está arriba y el norte abajo; la rosa de los vientos fue girada junto con el papel. No confundas la orientación del dibujo con la del mundo: ¿hacia qué punto cardinal viajaban?»</p>La respuesta está en un solo punto cardinal.',a:['oriente','este'],hint:'Si el norte está abajo, el este no queda donde suele quedar en un mapa.' ,sinPista:true},
+{k:'h',h:'El símbolo que no mide horas',p:[
+'En la esquina del mapa hay un pequeño dibujo repetido cuatro veces: un reloj de arena. Pero no marca ninguna hora. Clara recuerda una adivinanza que su abuelo le contaba de niña, siempre antes de dormir, y que ahora entiende de otra manera.']},
+{k:'p',n:81,solution:"ARENA: el reloj de arena contiene el material que cae; la pista juega con la idea de que el tiempo se mide por lo que se pierde.",h:'El reloj que no da la hora',q:'<p class="carta">«No soy el tiempo, aunque me gastan para medirlo. No soy río, aunque desciendo sin descanso. Cada parte de mí es pequeña; juntas, cuentan lo que ya no vuelve.»</p>En el dibujo del reloj, ¿qué elemento representa esa pérdida?',a:['arena','la arena'],hint:'No es el cristal ni el mecanismo: es aquello que cae de una mitad a la otra.',sinPista:true},
+{k:'h',h:'La puerta sellada',p:[
+'El mapa señala una puerta sellada en los sótanos de la villa, con una fila de números grabada en la piedra. Marcelo escondió ahí el anillo de compromiso.']},
+{k:'p',n:9,solution:"13: la secuencia contiene números primos consecutivos.",h:'Los números de la puerta',q:'En la piedra está tallado:<p class="carta"><b>2 · 3 · 5 · 7 · 11 · ?</b></p>¿Qué número falta para abrirla?',a:['13'],hint:'Son números que solo se dividen entre 1 y ellos mismos.'},
+{k:'h',h:'El arma que falta',p:[
+'Detrás de la puerta hay un informe del forense de la villa, escrito con prisa. Describe tres objetos hallados junto al cuerpo de Livia, pero solo uno de ellos pudo causar su muerte.']},
+{k:'p',n:91,solution:"PUÑAL: es el único de los tres objetos que pudo causar una herida mortal; el peine y la lámpara no tienen filo.",h:'El informe del forense',q:'Junto al cuerpo de Livia aparecieron tres objetos: un peine de hueso, una lámpara de aceite y un puñal sin funda.<br>¿Cuál de los tres pudo causar la herida que acabó con su vida?',a:['punal','el punal'],hint:'Busca el único objeto con filo.'},
+{k:'h',h:'El anillo y un poema',p:[
+'La puerta se abre. En un nicho: un anillo de bronce y un pergamino con versos de amor escritos por Livia, la noche antes de morir. Clara siente que el libro no cuenta una tragedia: cuenta una promesa.',
+'Entonces nota algo en el margen del poema: las primeras letras de cada verso están resaltadas.']},
+{k:'p',n:10,solution:"FLORENCIA: las iniciales de los versos forman FLOR... y señalan la ciudad.",h:'El poema de Livia',q:'<p class="carta">Fuego dormido bajo la piedra,<br>La noche guarda lo que no digo.<br>Oigo tus pasos donde el mármol<br>Roto conserva la forma de un río.<br>En otra tierra despertará la aurora,<br>Nuestro secreto cruzará los montes.<br>Cuando las campanas nombren la ausencia,<br>Imagíname donde renace el arte,<br>Allí donde el tiempo no nos conozca.</p>En el reverso, Livia solo escribió: «No busques el destino en lo que dicen los versos, sino en aquello que los sostiene». ¿Qué ciudad nombra sin nombrarla?',a:['florencia'],hint:'La señal no está en el significado de los versos. Observa cómo empieza cada uno.',sinPista:false},
+{k:'h',c:'Fin del Capítulo I',h:'Continuará',p:[
+'Florencia, 1498. Un pintor aparece muerto en su taller y su última obra desaparece.',
+'Clara cierra el libro. Entonces, desde la puerta de su casa, oye cómo alguien desliza un sobre por debajo. Dentro hay una sola línea, escrita con la misma letra que el libro:',
+'<span class="carta">«Has llegado a Roma. Faltan siglos de historia y muy poco tiempo.»</span>',
+'<small>Fin de esta parte del archivo. La siguiente pista espera en Florencia.</small>']},
+{k:'h',c:'Capítulo II · Florencia, 1498',h:'La ciudad de las campanas',p:[
+'Florencia, 1498. Clara encuentra un billete de viaje entre las páginas del libro. En el reverso, alguien ha dibujado una rosa atravesada por un reloj de arena.',
+'<span class="carta">«Busca donde los pintores esconden lo que no se atreven a mostrar.»</span>',
+'La fecha está escrita con tinta roja: abril de 1498.']},
+{k:'h',h:'El taller de los secretos',p:[
+'La nueva historia pertenece a Isabella, hija de una familia florentina acomodada, y a Leonardo, aprendiz de pintor. Se aman en secreto porque la familia de Isabella ha decidido casarla con un mecenas llamado Lorenzo Vieri.',
+'Leonardo pinta un retrato de Isabella. En el espejo del fondo aparece un hombre que no estaba en la habitación: tiene el mismo rostro que Druso, el mercader de Pompeya.',
+'El retrato desaparece la misma tarde en que Leonardo deja de acudir al taller.']},
+{k:'p',n:11,h:'El mensaje del reverso',solution:'ISABELLA: las primeras letras de las ocho líneas forman ISABELLA.',q:'Lee la primera letra de cada línea:<p class="carta">Inquieta, espero tu respuesta.<br>Si cae la noche, ven al taller.<br>Alguien nos observa desde la calle.<br>Bajo el marco guardaré la llave.<br>En el reverso está la verdad.<br>La pintura no debe salir de aquí.<br>Lee el mensaje antes de quemarlo.<br>Al alba sabrás qué hacer.</p>¿Qué nombre aparece?',a:['isabella'],hint:'Mira solo la primera letra de cada línea.'},
+{k:'h',h:'Ocho letras entre los pigmentos',p:[
+'En el cajón del taller hay una cuadrícula. El aprendiz, Leonardo, la usaba para esconder los nombres de quienes visitaban el estudio. Busca su nombre en diagonal, desde la esquina superior izquierda.',
+'Clara sigue las letras con la punta del dedo.']},
+{k:'p',n:12,h:'Sopa de letras: el aprendiz',t:'sopa',solution:'LEONARDO: está en diagonal descendente desde la esquina superior izquierda.',q:'La historia te ha presentado al aprendiz: <b>LEONARDO</b>. Encuentra su nombre en la cuadrícula pulsando las letras en orden. Están juntas en diagonal.',g:['LQTRMABC','XENOPQRS','ABOCLMNT','PQNNADSE','LMOTADRO','CSTUVRWE','HJKLMPDR','ZXYABCDO'],a:['leonardo'],hint:'Empieza por la L de la esquina superior izquierda y sigue en diagonal hacia abajo.'},
+{k:'h',h:'El crucigrama del taller',p:[
+'Isabella dejó un crucigrama a medias. Las casillas doradas revelan dónde escondió Leonardo una pista.',
+'El lugar es pequeño y está dentro del propio taller.']},
+{k:'p',n:13,h:'Crucigrama de los pintores',t:'cruz',solution:'ATRIO: las letras doradas de ATRIO, TEMPLE, RETRATO, ILUSTRACIÓN y ÓLEO forman ATRIO.',q:'Completa las palabras. Las casillas doradas forman el lugar donde se ocultó una pista.',r:[['Lugar con columnas a la entrada de una casa','atrio',0],['Pintura elaborada con pigmentos y una emulsión','temple',0],['Representación pintada de una persona','retrato',0],['Dibujo que acompaña o explica una obra','ilustracion',0],['Pintura hecha con pigmentos y aceite','oleo',0]],a:['atrio'],hint:'Todas las respuestas están relacionadas con el arte o la arquitectura.'},
+{k:'h',h:'El bordado de Isabella',p:[
+'En el forro del vestido de Isabella hay un bordado diminuto: una rosa atravesada por un reloj de arena, igual al que Clara vio en Pompeya. Junto al bordado, cosidas con hilo de oro, hay unas letras sueltas.']},
+{k:'p',n:131,solution:'VIERI: las letras bordadas en hilo de oro, ordenadas, forman el apellido del mecenas que encargó el retrato.',h:'El hilo de oro',q:'Ordena las letras bordadas en hilo de oro: <b>I R E I V</b>',a:['vieri'],hint:'Es un apellido florentino. Volverá a aparecer más adelante en la historia.'},
+{k:'h',h:'Cuatro personas, cuatro estancias',p:[
+'El maestro Rinaldi anotó quién estuvo en el taller la tarde en que desapareció el retrato. Cada persona ocupó una estancia distinta.',
+'La lista incluye a Isabella, Leonardo, el maestro Rinaldi y Matteo, el ayudante.']},
+{k:'p',n:14,h:'Murdoku: la tarde del retrato',t:'logic',rooms:['Patio','Estudio','Biblioteca','Almacén'],solution:'Isabella: Patio. Leonardo: Estudio. Maestro Rinaldi: Biblioteca. Matteo: Almacén.',q:'Asigna una estancia distinta a cada persona:<ul class="cl"><li>Isabella no entró en el estudio ni en la biblioteca.</li><li>Leonardo estuvo junto al caballete, en el estudio.</li><li>El maestro Rinaldi pasó la tarde leyendo en la biblioteca.</li><li>Matteo no estuvo en el patio.</li></ul>Completa las cuatro asignaciones.',assignments:{'Isabella':'Patio','Leonardo':'Estudio','Maestro Rinaldi':'Biblioteca','Matteo':'Almacén'},a:['matteo'],hint:'Coloca primero a Leonardo y al maestro Rinaldi. Después, Isabella solo puede estar en el patio o el almacén.'},
+{k:'h',h:'La cronología rota',p:[
+'Clara encuentra cuatro anotaciones con horas distintas. Si las ordena, descubrirá quién miente sobre el momento en que salió del taller.',
+'Una de las horas fue añadida después, con tinta más oscura.']},
+{k:'p',n:15,h:'Ordena la tarde',solution:'15:30 – 16:00 – 16:30 – 17:00. Isabella llega, Leonardo empieza el retrato, suena la campana y el taller cierra.',q:'Ordena los acontecimientos de más temprano a más tarde. Escribe las horas separadas por guiones.<ul class="cl"><li>La campana suena: 16:30.</li><li>El taller queda cerrado: 17:00.</li><li>Isabella llega: 15:30.</li><li>Leonardo empieza el retrato: 16:00.</li></ul>',a:['15:30-16:00-16:30-17:00','1530-1600-1630-1700'],hint:'Empieza por la hora más temprana y termina por la más tardía.'},
+{k:'h',h:'La carta escondida en el marco',p:[
+'El marco del retrato tiene una doble tabla. Dentro hay una carta de Leonardo.',
+'<span class="carta">«No he robado el retrato. Lo he escondido porque el hombre del espejo aparece también en un dibujo de Pompeya. Si alguien descubre que es el mismo rostro, buscará a Isabella. La llave está donde la luz toca primero la pared.»</span>',
+'Clara comprende que Leonardo intentaba proteger a Isabella. Pero ¿quién se llevó el cuadro?']},
+{k:'p',n:16,h:'El acertijo de la luz',solution:'VENTANA: deja entrar la luz del día y dibuja rectángulos sobre el suelo.',q:'¿Dónde está escondida la llave?<p class="carta">«No soy lámpara y no tengo fuego. Dejo entrar el día y dibujo rectángulos sobre el suelo.»</p>',a:['ventana','la ventana'],hint:'Piensa en el lugar por donde entra la luz natural.'},
+{k:'h',h:'El inventario de la habitación',p:[
+'Junto a la ventana hay una lista: pincel, paño azul, paleta, llave y caballete. Cuatro objetos pertenecen al trabajo del pintor. Uno fue colocado allí por el visitante que entró después.',
+'Clara necesita identificar el objeto intruso.']},
+{k:'p',n:17,h:'El objeto que no encaja',solution:'LLAVE: es el único objeto que no sirve para pintar ni preparar una pintura.',q:'¿Qué objeto no pertenece al trabajo habitual de un pintor?<ul class="cl"><li>Pincel</li><li>Paño para limpiar pigmentos</li><li>Paleta</li><li>Llave</li><li>Caballete</li></ul>',a:['llave','la llave'],hint:'Busca el único objeto que no sirve para pintar.'},
+{k:'h',h:'El testimonio de Matteo',p:[
+'Matteo asegura que no salió del taller. Sin embargo, una frase contradice su declaración: afirma que oyó la campana desde el patio, aunque antes había dicho que estaba en el almacén.',
+'Clara vuelve a consultar las asignaciones del taller.']},
+{k:'p',n:18,h:'La frase contradictoria',solution:'ALMACÉN: según el Murdoku, Matteo estaba en el almacén, no en el patio.',q:'Según el Murdoku anterior, ¿en qué estancia estaba Matteo?',a:['almacen','el almacen'],hint:'Vuelve a las cuatro asignaciones del acertijo anterior.'},
+{k:'h',h:'El retrato que falta',p:[
+'La llave abre una caja detrás del marco. Dentro hay una miniatura: Isabella aparece de perfil, pero en el espejo vuelve a verse el rostro del desconocido.',
+'En el borde está escrito: «No busques al que sostiene el pincel. Busca al que paga por el lienzo».',
+'El nombre del mecenas aparece en el contrato: Lorenzo Vieri.']},
+{k:'p',n:19,h:'La deducción final',solution:'LORENZO VIERI: encargó y pagó el retrato, y tenía motivos para ocultar el rostro del espejo. Leonardo escondió el cuadro para proteger a Isabella.',q:'¿Quién tenía el poder y el motivo para hacer desaparecer el retrato?<p class="carta">Pistas: encargó la obra, pagó al taller y exigió que el cuadro no se mostrara.</p>',a:['lorenzo vieri','lorenzo','vieri'],hint:'No es el aprendiz ni la modelo: busca al mecenas que encargó la obra.'},
+{k:'h',h:'El contrato de Lorenzo Vieri',p:[
+'Entre los papeles del mecenas hay un contrato con una cláusula tachada varias veces, como si alguien hubiera querido borrarla. Bajo la tachadura todavía se lee una fecha, un año antes de que el retrato desapareciera.']},
+{k:'p',n:191,solution:'1497: MCDXCVII en números romanos equivale a 1497, un año antes de la desaparición del retrato. La cláusula tachada exigía que la obra nunca se mostrase en público.',h:'La fecha tachada',q:'La fecha tachada en el contrato: <b>MCDXCVII</b>.<br>¿Qué año es, en cifras?',a:['1497'],hint:'M = 1000, CD = 400, XC = 90, VII = 7.'},
+{k:'h',h:'Una firma detrás del lienzo',p:[
+'Clara da la vuelta a la miniatura y encuentra una firma casi borrada: «A.». Debajo, una fecha de 1889. El libro no solo guarda historias antiguas; alguien ha ido añadiendo pruebas durante siglos.',
+'En el margen aparece una nota de su abuelo Aurelio: «El rostro no envejece. Cambian los nombres, no el hombre».',
+'Clara mira la fotografía de Druso y siente que el desconocido está mucho más cerca de lo que imaginaba.']},
+{k:'p',n:20,h:'El nombre del margen',solution:'AURELIO: es el nombre del abuelo de Clara, el historiador que dejó el libro.',q:'Completa el nombre del abuelo de Clara.<p class="carta">«Historiador, coleccionista de documentos y autor de las notas del libro. Su nombre empieza por A y tiene siete letras.»</p>',a:['aurelio'],hint:'Es el nombre que aparece en la primera carta de la historia.'},
+{k:'h',c:'Fin del Capítulo II',h:'El sobre de 1889',p:[
+'El capítulo termina con un papel escondido detrás de la miniatura. Está escrito en francés y lleva una fecha: París, 1889.',
+'<span class="carta">«Aurelio: he encontrado el mismo rostro en otra fotografía. Si Clara ha llegado hasta Florencia, dile que no confíe en el hombre que restaura los recuerdos.»</span>',
+'Clara relee la última frase. Adrián trabaja precisamente restaurando documentos. Por primera vez, no sabe si debe contarle lo que ha encontrado.',
+'La siguiente pista la espera en París.']},
+{k:'h',c:'Interludio · Barcelona, hoy',h:'La pregunta en el archivo',p:[
+'Clara no espera a mañana. Esa misma noche entra en el archivo histórico y pone la nota de 1889 delante de Adrián: «No confíes en el hombre que restaura los recuerdos». Él la lee dos veces y no dice que sea mentira.',
+'En vez de defenderse, la lleva a un rincón del archivo que nadie más visita: un armario antiguo cerrado con una rueda de letras, herencia de su propia familia.',
+'«Si quieres la verdad, tendrás que ganártela igual que yo», dice, y gira la primera letra.']},
+{k:'p',n:201,solution:'RESTAURO: Adrián elige esa palabra porque define su oficio y, según él, también la condena de su familia.',h:'La rueda de letras',q:'Adrián gira la rueda hasta formar una palabra de ocho letras.<p class="carta">«Es lo que hago cada día con los documentos. Y, según mi padre, también lo que hace esta familia con la verdad.»</p>Si el oficio de Adrián es restaurar documentos, ¿qué palabra forma la cerradura?',a:['restauro'],hint:'Es lo que hace Adrián todos los días con los papeles antiguos.'},
+{k:'h',h:'El lema invertido',p:[
+'Dentro del armario hay un único objeto: una placa de bronce con un lema familiar grabado. Clara lo reconoce enseguida: es casi idéntico al que vio en la caja de su abuelo, solo que invertido, letra a letra.']},
+{k:'p',n:202,solution:'SON RECUERDOS OCULTADOS: leído al revés, letra a letra, completa el lema de la familia de Adrián, hermano oscuro del lema de Aurelio.',h:'El lema de los Restauro',q:'Grabado en la placa, al revés:<p class="carta"><b>SODATLUCO SODREUCER NOS</b></p>Léelo de derecha a izquierda, letra por letra. ¿Qué frase esconde?',a:['son recuerdos ocultados'],hint:'Lee cada letra en el orden contrario al que está escrita.'},
+{k:'h',h:'El testigo equivocado',p:[
+'Adrián cierra el armario de golpe cuando ve algo por la ventana: un hombre con cámara lleva dos tardes sentado en el mismo banco frente al archivo. Clara repasa sus notas: tres personas se han cruzado demasiadas veces en su camino esta semana.']},
+{k:'p',n:203,solution:'HUGO: es el único de los tres que coincide en lugar y hora con Clara en cada ocasión, sin ningún motivo que lo justifique.',h:'El testigo equivocado',q:'Tres personas se han repetido esta semana:<ul class="cl"><li>El Sr. Montt, bibliotecario, solo aparece dentro del archivo, nunca fuera.</li><li>Nadia, estudiante de posgrado, coincidió una vez, pero tenía clase en ese mismo edificio.</li><li>Hugo, fotógrafo callejero, ha estado en la puerta de casa de Clara, en la cafetería de la facultad y ahora frente al archivo, sin motivo aparente.</li></ul>¿Quién vigila a Clara?',a:['hugo'],hint:'Busca a quien no tiene ninguna razón real para estar en los tres sitios.'},
+{k:'h',h:'El mensaje de Hugo',p:[
+'Adrián cruza la calle antes de que Clara pueda detenerlo y le quita la cámara al fotógrafo. En la pantalla hay una imagen de los dos saliendo del archivo, con una frase escrita encima, cifrada letra a letra con el mismo método que ya conocen.']},
+{k:'p',n:204,cesar:true,solution:'PARAD: desplazando tres letras hacia atrás, SDUDG se convierte en PARAD. Alguien, además de la Orden, quiere que dejen de buscar.',h:'La cifra de César, otra vez',q:'Sobre la fotografía, cifrado con el mismo método de César que ya conoces:<p class="carta"><b>S D U D G</b></p>',a:['parad'],hint:'Es el mismo desplazamiento de tres letras que usaste con Pompeya.'},
+{k:'h',h:'El billete tachado',p:[
+'De vuelta en el armario, bajo el lema, Adrián encuentra un billete de tren amarillento, casi idéntico al que Clara halló en Florencia. Pero en este, el destino está tachado a mano. Solo quedan visibles una ciudad a medias y cuatro cifras.',
+'Clara mira a Adrián. Por primera vez desde que se conocen, los dos quieren llegar al mismo sitio.']},
+{k:'p',n:205,solution:'PARÍS, 1889: coincide exactamente con la carta encontrada al final del capítulo de Florencia. Los Restauro ya sabían, desde hace generaciones, adónde llevaba esta historia.',h:'El billete tachado',q:'En el billete se lee: <b>PA_ _S</b>, y debajo, parcialmente borrado: <b>1 8 8 9</b>.<br>¿Qué ciudad y qué año completan el billete?',a:['paris 1889','paris','1889'],hint:'Es la misma ciudad y el mismo año que aparecían en la última carta de Florencia.'},
+{k:'h',c:'La pista hacia París',h:'Dos billetes, un solo tren',p:[
+'Clara guarda el billete de Adrián junto al suyo. No son iguales, pero marcan la misma fecha.',
+'«Si tu familia ya sabía esto», le dice ella, «vas a tener que contarme todo lo que no me has contado todavía.»',
+'Adrián no responde. Solo cierra el armario con cuidado, como quien cierra algo que lleva siglos esperando a ser abierto del todo.',
+'<small>El libro aún guarda cinco pruebas antes de abrir el camino hacia París, 1889.</small>']},
+{k:'p',n:206,h:'Murdoku: el archivo de Aurelio',t:'logic',rooms:['Galería','Despacho','Sótano','Torre'],solution:'Clara: Galería. Adrián: Despacho. Aurelio: Torre. Hugo: Sótano.',q:'Cuatro personas entraron en estancias distintas del archivo. Asigna cada una:<ul class="cl"><li>Aurelio subió a la estancia más alta.</li><li>Clara no entró ni en el Despacho ni en el Sótano.</li><li>Adrián fue directamente al Despacho.</li><li>Hugo no subió a la Torre.</li></ul>¿Qué estancia ocupó cada persona?',assignments:{'Clara':'Galería','Adrián':'Despacho','Aurelio':'Torre','Hugo':'Sótano'},hint:'Coloca primero a Aurelio y Adrián. Clara no puede estar en el Despacho ni en el Sótano.'},
+{k:'p',n:207,h:'La secuencia del reloj',solution:'48: las diferencias son 5, 7, 9 y 11; la siguiente es 13. Por tanto, 35 + 13 = 48.',q:'En el reverso del reloj aparece la secuencia:<p class="carta"><b>3 · 8 · 15 · 24 · 35 · ?</b></p>¿Qué número continúa?',a:['48'],hint:'Calcula cuánto aumenta cada número respecto al anterior. Las diferencias también forman una secuencia.'},
+{k:'p',n:208,h:'La nota entre las páginas',solution:'ADRIAN: las iniciales de las seis líneas forman A-D-R-I-A-N.',q:'Una nota está escondida en el margen. Lee la primera letra de cada línea:<p class="carta">A veces el silencio protege.<br>Detrás de cada puerta hay una fecha.<br>Recuerda quién guardó la llave.<br>Incluso una mentira deja huellas.<br>Alguien conoce el camino.<br>Nunca confíes solo en un retrato.</p>¿Qué nombre aparece?',a:['adrian','adrián'],hint:'No leas las frases completas: fíjate únicamente en la primera letra de cada línea.'},
+{k:'p',n:209,h:'La voz del pasillo',solution:'ECO: devuelve las palabras sin tener voz propia.',q:'En la pared del pasillo alguien escribió:<p class="carta">«No tengo boca y te contesto. No tengo memoria, pero repito lo que acabas de decir. Vivo en paredes, montañas y habitaciones vacías.»</p>¿Qué soy?',a:['eco','el eco','un eco'],hint:'Lo oyes cuando gritas en un lugar vacío.'},
+{k:'p',n:210,h:'La última cerradura',solution:'RELOJ: las letras desordenadas J-O-R-E-L forman RELOJ.',q:'La última cerradura tiene cinco letras grabadas:<p class="carta"><b>J · O · R · E · L</b></p>Ordénalas para descubrir el objeto que mide el tiempo y que aparece dibujado en todas las cartas.',a:['reloj','el reloj'],hint:'Es el objeto que mide las horas. Reordena las cinco letras.'}
+
+,
+{k:'h',c:'Capítulo III · París, 1889',h:'Las cartas de medianoche',p:[
+'<em>París, octubre de 1889.</em> El libro se abre por una página que huele a humo y tinta fresca. Élise trabaja en una librería estrecha, entre novelas usadas y periódicos atrasados. Antoine, periodista, entra cada noche a la misma hora y compra siempre el mismo diario, aunque nunca lo lee.',
+'Clara encuentra una carta doblada dentro del lomo. Antoine escribe que alguien está siguiendo a las parejas del libro y que los asesinatos no son imitaciones: son advertencias. En el margen hay una frase que no parece dirigida a Élise, sino a quien encuentre la carta más de un siglo después.',
+'<span class="carta">«Si la campana da las once y el reloj de la estación marca otra hora, no sigas al hombre que corre. Sigue a quien se queda esperando.»</span>',
+'Adrián lee por encima del hombro de Clara. «Mi familia tenía una librería en París», dice. «Nunca me contaron por qué cerró.»']},
+{k:'p',n:301,h:'La hora que no encaja',solution:'23:40: Antoine salió a las 23:10 y tardó treinta minutos; el reloj atrasado marca 23:10 cuando el reloj correcto marca 23:40. La nota fue escrita a la hora correcta.',q:'Tres testimonios describen la última noche de Antoine:<ul class="cl"><li>Élise cerró la librería cuando la campana dio las once.</li><li>El reloj de la estación llevaba treinta minutos de retraso.</li><li>El guardia vio a Antoine salir de la estación cuando su reloj marcaba las 23:10; sabía que el reloj atrasaba media hora.</li></ul>¿Qué hora real era cuando el guardia lo vio?',a:['23:40','2340','once y cuarenta','11:40'],hint:'El reloj de la estación no estaba adelantado: iba media hora por detrás.'},
+{k:'h',h:'La última carta de Antoine',p:[
+'La respuesta abre un sobre oculto en la encuadernación. Dentro hay una carta que Élise nunca llegó a leer. No es una despedida: Antoine le pide que no confíe en el inspector que lleva el caso, porque su firma aparece en documentos de Roma y Florencia.',
+'Clara reconoce el símbolo del reloj de arena y la rosa. Debajo, alguien ha escrito cuatro nombres. Tres están tachados. El cuarto conserva una inicial: A.',
+'Adrián se aparta de la mesa. «Aurelio también investigó París», murmura. «Y mi familia recibió una carta suya el mismo año en que desapareció.»']},
+{k:'p',n:302,h:'El nombre bajo la tinta',solution:'ELISE: las iniciales de las cinco líneas forman E-L-I-S-E.',q:'En el reverso de la carta, Élise dejó cinco líneas. La tinta se ha corrido, pero las iniciales siguen intactas:<p class="carta">Entre páginas guardé tu voz.<br>La noche no pudo borrarla.<br>Incluso el miedo tuvo tu nombre.<br>Si vuelves, sabré reconocerte.<br>Entonces no habrá más secretos.</p>¿A quién iba dirigida la carta?',a:['elise','élise'],hint:'Las líneas conservan una señal en el margen; mira cómo empieza cada una.'},
+{k:'h',c:'Capítulo IV · Viena, 1924',h:'El último baile',p:[
+'<em>Viena, febrero de 1924.</em> Una invitación de papel marfil cae del libro. Margot y Alexander se conocieron en un baile de máscaras organizado por una familia que aparece, una y otra vez, en los documentos de la Orden del Tiempo.',
+'La música se detuvo a medianoche. Alexander fue encontrado muerto en el invernadero y Margot, que había discutido con él minutos antes, fue la última persona que lo vio con vida. La policía cerró el caso demasiado deprisa.',
+'En el diario de Margot hay una frase escrita con tanta fuerza que ha rasgado el papel: «No lo mató quien sostuvo el cuchillo, sino quien decidió que nadie debía escucharle».']},
+{k:'p',n:401,h:'Los minutos del baile',t:'logic',rooms:['Salón','Galería','Invernadero','Vestíbulo'],solution:'Margot: Invernadero; Otto: Vestíbulo; Elise: Galería; Viktor: Salón. Margot fue la última en ver a Alexander, pero eso no prueba que lo matara.',q:'Cuatro invitados fueron vistos en estancias distintas cuando se apagaron las luces: Margot, Otto, Elise y Viktor.<ul class="cl"><li>Viktor permaneció junto a la orquesta, en el Salón.</li><li>Elise no salió de la Galería, donde guardaba los abrigos.</li><li>Otto esperaba en el Vestíbulo porque había pedido un carruaje.</li><li>Margot fue encontrada en el Invernadero.</li></ul>Asigna a cada persona su estancia. Después, recuerda: ¿la presencia de Margot junto al cuerpo demuestra por sí sola que sea culpable?',assignments:{'Margot':'Invernadero','Otto':'Vestíbulo','Elise':'Galería','Viktor':'Salón'},hint:'Las tres primeras pistas dejan una sola estancia posible para Margot. La deducción resuelve posiciones, no culpabilidad.'},
+{k:'h',h:'La máscara de Alexander',p:[
+'Entre las páginas del diario aparece una máscara rota. En su interior alguien grabó cuatro cifras y una palabra incompleta. Clara comprende que la máscara no pertenecía a Alexander: era la de un hombre que aparece en una fotografía de 1498, otra de 1889 y otra de 1924. Siempre con el mismo rostro.',
+'Adrián confiesa que su familia ha protegido durante generaciones a ese hombre. No por lealtad, dice, sino por miedo. «Mi bisabuela lo llamó el Testigo. Mi padre lo llamaba el Huésped. Yo solo sé que nunca envejece».',
+'Clara siente que la historia cambia de forma. Ya no están siguiendo a un asesino: están siguiendo a alguien que ha sobrevivido a todos los testigos.']},
+{k:'p',n:402,h:'Las cuatro cifras',solution:'1924: los números son los años de las cuatro historias, en orden cronológico: 79, 1498, 1889 y 1924. La cifra final de la máscara señala el último baile.',q:'En el interior de la máscara hay cuatro fechas separadas por una raya:<p class="carta"><b>LXXIX — MCDXCVIII — MDCCCLXXXIX — MCMXXIV</b></p>La última fecha corresponde al baile de Margot y Alexander. Escríbela en cifras.',a:['1924'],hint:'Convierte el último número romano: M = 1000, CM = 900, XX = 20, IV = 4.'},
+{k:'h',c:'Capítulo V · Barcelona, 2026',h:'La verdad del abuelo',p:[
+'El libro vuelve a pesar como al principio. Barcelona, 2026. Clara y Adrián regresan al archivo con las cartas de Élise, el diario de Margot y la fotografía de 1889. Ya no pueden fingir que solo investigan a sus antepasados.',
+'En el despacho que Aurelio utilizaba antes de desaparecer encuentran una grabadora, un manojo de llaves y una página arrancada del libro negro. La voz de su abuelo suena débil, pero inequívoca: «Si estás oyendo esto, Clara, la Orden ya sabe que has reunido las cuatro historias».',
+'La grabación revela que Aurelio descubrió la verdad: las parejas no estaban unidas por una maldición, sino por haber encontrado fragmentos de un manuscrito que registraba los crímenes de la Orden. El hombre del mismo rostro era quien los perseguía y cambiaba de nombre para borrar su rastro.',
+'Adrián admite que su familia custodiaba una parte del manuscrito. Su silencio no fue inocente. Clara se aleja de él, aunque ve en sus ojos el mismo miedo que ha leído en las cartas de las parejas.']},
+{k:'p',n:501,h:'La secuencia de las vidas',solution:'79, 1498, 1889, 1924: las diferencias no son regulares; son las fechas de las cuatro historias, ordenadas cronológicamente. La quinta fecha es 2026, el presente de Clara.',q:'Aurelio dejó una secuencia en la última página:<p class="carta"><b>79 · 1498 · 1889 · 1924 · ?</b></p>No es una serie matemática. Son los años de las cuatro historias que has reconstruido y el año desde el que Clara las investiga. ¿Qué año falta?',a:['2026'],hint:'No busques una operación. Recuerda en qué año comenzó la investigación de Clara.'},
+{k:'h',h:'El diario que no debía existir',p:[
+'Detrás de la grabadora hay un sobre con el nombre de Clara. Dentro, Aurelio explica que fingió su desaparición para infiltrarse en la Orden. Pero dejó de enviar señales cuando descubrió que el Testigo conocía el futuro de cada pareja antes de que ocurriera.',
+'La última página del diario está escrita para dos personas. Una frase está dirigida a Clara; la siguiente, a Adrián. El abuelo sabía que acabarían encontrándose, aunque no podía saber si confiarían el uno en el otro.',
+'<span class="carta">«No confundáis herencia con destino. La sangre os trajo hasta aquí; lo que hagáis ahora será vuestro.»</span>']},
+{k:'p',n:502,h:'La última elección',solution:'REVELAR: el manuscrito debe salir a la luz para romper el silencio de la Orden. La respuesta abre el final; no determina si Clara perdona a Adrián.',q:'En el margen hay dos columnas. La primera reúne lo que la Orden ha hecho: ocultar, borrar, silenciar, separar. La segunda contiene una sola palabra que Aurelio repite en todas sus cartas:<p class="carta"><b>R E V E L A R</b></p>¿Qué verbo resume la decisión que puede acabar con el poder de la Orden?',a:['revelar'],hint:'No es olvidar ni esconder: es hacer que la verdad deje de estar oculta.'},
+{k:'h',h:'Lo que el tiempo no pudo borrar',p:[
+'Clara coloca el manuscrito sobre la mesa. Adrián no intenta detenerla. Por primera vez, no le pide que confíe en él: le entrega la llave de su familia y deja que sea ella quien decida.',
+'La puerta del archivo se abre antes del amanecer. Afuera, la ciudad sigue con su ruido habitual. Dentro, Clara empieza a leer en voz alta los nombres de Livia, Isabella, Élise y Margot. Cada nombre devuelve a una persona al mundo.',
+'En la última hoja hay una fotografía reciente de Aurelio, sentado frente a una ventana. Detrás solo ha escrito: «No estoy muerto. Pero si vienes a buscarme, ven sin el libro».',
+'Clara mira a Adrián. La historia de sus familias no ha decidido lo que serán. Todavía queda una pregunta, y esta vez no está escrita en ningún acertijo: si el amor puede sobrevivir al tiempo, ¿puede sobrevivir también a la verdad?',
+'<span class="carta">FIN DEL PRIMER ARCHIVO · La historia de Clara y Adrián continúa.</span>']}
+
+];
+
+function sopaContiene(g, palabra){
+  const grid=g.map(r=>[...N(r)]), target=[...N(palabra)];
+  if(!grid.length||!target.length)return false;
+  const dirs=[[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
+  for(let y=0;y<grid.length;y++)for(let x=0;x<grid[y].length;x++){
+    for(const [dy,dx] of dirs){
+      if(target.every((c,k)=>grid[y+k*dy]?.[x+k*dx]===c))return true;
+    }
+  }
+  return false;
+}
+function validarAcertijos(){
+  D.forEach((d,idx)=>{
+    if(d.t==='sopa'&&(!d.g||!d.a||!d.a.some(a=>sopaContiene(d.g,a))))
+      console.warn('Sopa de letras sin solución en la posición',idx,d.h);
+    if(d.t==='logic'&&(!d.rooms||!d.assignments||Object.keys(d.assignments).length!==d.rooms.length||
+      new Set(Object.values(d.assignments)).size!==d.rooms.length||
+      !Object.values(d.assignments).every(r=>d.rooms.includes(r))))
+      console.warn('Murdoku con asignaciones inconsistentes en la posición',idx,d.h);
+  });
+}
+function restantes(idx){const ch=chapterStart(idx);return D.slice(idx).filter((x,j)=>x.k==='p'&&chapterStart(idx+j)===ch).length}
+function hud(idx){
+  const left=restantes(idx);
+  const label=left===1?'1 acertijo pendiente':`${left} acertijos pendientes`;
+  return `<div class="hud"><span class="hud-chip"><span class="mini-icon">◈</span>${chapterName(idx)}</span><span class="hud-chip">${label}<span class="mini-icon">✧</span></span></div>`;
+}
+function barra(){const ch=chapterStart(i);const total=D.filter((x,j)=>x.k==='p'&&chapterStart(j)===ch).length;const done=D.slice(0,i).filter((x,j)=>x.k==='p'&&chapterStart(j)===ch).length;return `<div class="bar"><i style="width:${Math.round(done/total*100)}%"></i></div>`}
+function portada(){lastCh=null;
+  const nom='nombres'.split('').map((c,j)=>`<span style="--i:${j}">${c}</span>`).join('');
+  M.innerHTML=`<section class="portada"><p class="sub">Un libro. Dos amantes. Siglos de silencio.</p>
+  <h1>Cuando el tiempo olvidó nuestros <span class="nom">${nom}</span></h1>
+  <p class="sub">Una historia que nunca debió ser contada</p>
+  <div class="acc"><button id="e">Abrir el libro</button>${prog>0?'<button class="dos" id="c">Continuar la investigación</button>':''}</div></section>`;
+  musicDock();
+  document.getElementById('e').onclick=()=>{
+    startMusic();i=0;prog=0;diary=[];
+    try{localStorage.removeItem('ctn_v2');localStorage.removeItem('ctn_diario_v2');localStorage.removeItem('ctn_diario_visto_v2')}catch(e){}
+    const dp=document.getElementById('diaryPanel');if(dp)dp.classList.remove('abierto');
+    const rp=document.getElementById('resultadoPanel');if(rp)rp.classList.remove('abierto');
+    const rb=document.getElementById('resultadoToggle');if(rb)rb.style.display='';
+    go();
+  };
+  const c=document.getElementById('c');if(c)c.onclick=()=>{startMusic();i=Math.min(prog,D.length-1);go()};
+  if(!document.getElementById('resultadoToggle'))resultButton();
+  const rb=document.getElementById('resultadoToggle');if(rb)rb.style.display='none';
+}
+let lastCh=null;
+function mostrar(){save();window.scrollTo(0,0);const d=D[i];resultButton();diaryButton();diaryNote(d,i);updateDiaryBadge();if(skipNextPageSound)skipNextPageSound=false;else newPageSound();d.k=='h'?hist(d):puz(d)}
+function go(){
+  const ch=chapterStart(i);
+  if(lastCh!==null&&ch>lastCh&&ERAS[ch]){lastCh=ch;cambioEra(ch,mostrar);return}
+  lastCh=ch;mostrar();
+}
+/* Cambio de era: primero una carta, después el viaje en el tiempo. */
+const ERAS={
+ 1:{de:2026,a:79,cifra:'79 d. C.',lugar:'Roma',sub:'Pompeya, pocos días antes de la erupción',pasado:true,
+  sobre:'De Aurelio, para Clara · Antes de Roma',
+  carta:['Querida Clara:',
+   'Si has llegado hasta aquí, has abierto la caja y has leído el libro. Perdóname por no habértelo contado en persona: hay cosas que se entienden mejor cuando las encuentras tú misma.',
+   'Ahora la página va a girar y el libro te llevará muy lejos, a una ciudad que no sabe que le quedan pocos días. No tengas miedo de lo que veas. Tú ya sabes cómo acaba, y por eso puedes mirar con más cuidado que nadie.',
+   'Fíjate en las manos, en lo que se escribe y en lo que se esconde. Los nombres se olvidan, pero casi nunca desaparecen del todo.'],
+  firma:'Tu abuelo, Aurelio'},
+ 2:{de:79,a:1498,cifra:'1498',lugar:'Florencia',sub:'Abril de 1498',
+  sobre:'Sin remitente · La misma letra del libro',
+  carta:['Clara:',
+   'Has resuelto Roma antes de lo previsto. Hay quien tardó años en entender un solo poema.',
+   'Ahora el libro te lleva a Florencia. Allí los pintores esconden lo que no se atreven a mostrar, y las campanas cuentan las horas a quien no quiere escucharlas.',
+   'Te acompañará un billete y una rosa atravesada por un reloj de arena. No preguntes todavía quién la dibujó. Mira, compara, y no te fíes de todo lo que te digan, ni siquiera de quienes parecen ayudarte.',
+   'Faltan siglos de historia y muy poco tiempo.'],
+  firma:'Alguien que ya estuvo allí'},
+ 3:{de:1498,a:2026,cifra:'2026',lugar:'Barcelona, hoy',sub:'Noviembre de 2026',
+  sobre:'De Clara, para Aurelio · Una carta que no enviará',
+  carta:['Abuelo:',
+   'Escribo esta carta sabiendo que no tengo dirección a la que mandarla. Es la única forma que se me ocurre de ordenar lo que pienso.',
+   'Hemos estado en Roma y en Florencia, y en cada fotografía vuelve a estar el mismo rostro. Tú lo sabías, ¿verdad? Por eso escribías que cambian los nombres, no el hombre.',
+   'Vuelvo a casa porque una nota de 1889 me ha dejado una duda que no puedo guardar yo sola, y la persona a quien tengo que enseñársela es justo de quien me advierten. No sé si hago bien.',
+   'Si me escuchas, de algún modo, dime que merece la pena seguir. Y si no, seguiré igual.'],
+  firma:'Tu nieta, Clara'}
+};
+function cambioEra(ch,done){
+  const E=ERAS[ch];
+  playEraSound();
+  const reducido=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const base=reducido?.3:2.2,paso=reducido?.15:.9;
+  const lineas=E.carta.map((t,n)=>`<p style="--d:${(base+n*paso).toFixed(2)}s">${t}</p>`).join('');
+  const dFirma=base+E.carta.length*paso;
+  const polvo=Array.from({length:30},()=>`<i style="--x:${(Math.random()*100).toFixed(1)}%;--s:${(2+Math.random()*4).toFixed(1)}px;--t:${(5+Math.random()*6).toFixed(1)}s;--w:${(-Math.random()*8).toFixed(1)}s;--dx:${Math.round((Math.random()-.5)*160)}px"></i>`).join('');
+  const ov=document.createElement('div');
+  ov.className='era-overlay'+(E.pasado?' pasado':'');
+  ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label','Carta antes de cambiar de época');
+  ov.innerHTML=`<div class="era-polvo" aria-hidden="true">${polvo}</div>
+  <div class="era-vortex" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i></div>
+  <div class="era-escena era-carta-escena">
+   <div class="era-carta">
+    <div class="era-sello" aria-hidden="true"><span class="mitad a"></span><span class="mitad b"></span><span class="era-ico">⏳</span></div>
+    <article class="era-papel"><p class="era-lugar" style="--d:${Math.max(0,base-.4).toFixed(2)}s">${E.sobre}</p>${lineas}<p class="era-firma" style="--d:${dFirma.toFixed(2)}s">${E.firma}</p></article>
+   </div>
+   <button type="button" class="era-btn" disabled>Dejar que el tiempo gire</button>
+  </div>
+  <div class="era-viaje" aria-hidden="true">
+   <div class="era-reloj-cara"><span class="era-mano h"></span><span class="era-mano m"></span></div>
+   <div class="era-num">${E.de}</div>
+   <div class="era-llegada"><h2>${E.lugar}</h2><p>${E.sub}</p></div>
+  </div>
+  <button type="button" class="era-skip">Saltar</button>`;
+  document.body.appendChild(ov);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('on')));
+  const btn=ov.querySelector('.era-btn'),skip=ov.querySelector('.era-skip'),num=ov.querySelector('.era-num');
+  const mm=ov.querySelector('.era-mano.m'),hh=ov.querySelector('.era-mano.h');
+  const dir=E.pasado?-1:1;
+  let fase=0;
+  setTimeout(()=>{btn.disabled=false;btn.classList.add('lista');btn.focus({preventScroll:true})},(dFirma+.7)*1000);
+  const cerrar=()=>{ov.classList.remove('on');stopEraSound();setTimeout(()=>ov.remove(),1000)};
+  const llegar=()=>{
+    if(fase>=2)return;fase=2;
+    ov.classList.add('viaje','llegada');
+    num.textContent=E.cifra;
+    skipNextPageSound=true;
+    diaryTravelNote(ch);
+    updateDiaryBadge();
+    done();
+    setTimeout(cerrar,reducido?1400:2900);
+  };
+  const viajar=()=>{
+    if(fase>=1)return;fase=1;
+    btn.disabled=true;
+    ov.classList.add('viaje');
+    ov.querySelector('.era-viaje').removeAttribute('aria-hidden');
+    const dur=reducido?900:3800,t0=performance.now()+(reducido?0:700);
+    const tick=now=>{
+      if(fase>=2)return;
+      const p=Math.max(0,Math.min(1,(now-t0)/dur));
+      const e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+      num.textContent=Math.round(E.de+(E.a-E.de)*e);
+      mm.style.transform=`translateX(-50%) rotate(${dir*e*360*9}deg)`;
+      hh.style.transform=`translateX(-50%) rotate(${dir*e*360*9/12}deg)`;
+      if(p<1)requestAnimationFrame(tick);else llegar();
+    };
+    requestAnimationFrame(tick);
+  };
+  btn.onclick=viajar;
+  skip.onclick=()=>{if(fase===0)viajar();llegar()};
+}
+function hist(d){
+  const epigrafe=d.c && d.c!=='Prólogo' ? `<p class="cap">${d.c}</p>` : '';
+  M.innerHTML=hud(i)+barra()+epigrafe+`<article class="hoja"><h2>${d.h}</h2>${d.p.map(x=>`<p>${x}</p>`).join('')}</article>
+  <div class="acc" style="margin-top:22px">${i<D.length-1?'<button id="s">Continuar</button>':'<button class="dos" id="r">Volver a la portada</button>'}</div>`;
+  const s=document.getElementById('s');if(s)s.onclick=()=>{i++;go()};
+  const r=document.getElementById('r');if(r)r.onclick=()=>{prog=0;try{localStorage.removeItem('ctn_v2')}catch(e){}portada()};
+}
+const CESAR_ABC='ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+function cesarExplica(){
+  return `<div class="cesar-explica">
+   <h3>Antes de descifrar · el truco de César</h3>
+   <p>Este es un código muy antiguo: cada letra se cambia por otra que está un número fijo de posiciones más adelante o más atrás en el alfabeto. Basta con contar.</p>
+   <p>El alfabeto español, contando la <b>Ñ</b>:<br><span class="abecedario">${[...CESAR_ABC].join(' ')}</span></p>
+   <p class="ejemplo">Ejemplo: si retrocedemos <b>3</b> posiciones, la <b>D</b> se convierte en <b>A</b> (D → C → B → A) y la <b>H</b> en <b>E</b>. Así, «DH» se lee «AE».</p>
+   <p>La <b>Ñ</b> cuenta como una letra más, entre la N y la O: si desplazas la <b>O</b> dos puestos hacia atrás llegas a la <b>Ñ</b>. Al llegar al final del alfabeto se vuelve a empezar por el principio, y al revés.</p>
+   <p>En el libro que tiene Clara delante, la clave es <b>3</b>: hay que retroceder tres letras en cada una.</p>
+  </div>`;
+}
+function puz(d){
+  let w='';
+  if(d.t=='sopa')w=`<div class="sopa-ayuda">🔎 Pulsa las letras de la palabra. Para corregir, vuelve a pulsar una letra marcada (se quita) o usa «Borrar última». Cuando estés seguro, pulsa «Comprobar».</div><table class="g sopa-grid" aria-label="Sopa de letras">${d.g.map((r,y)=>`<tr>${[...r].map((c,x)=>`<td role="button" tabindex="0" data-y="${y}" data-x="${x}" aria-label="Fila ${y+1}, columna ${x+1}: ${c}">${c}</td>`).join('')}</tr>`).join('')}</table><div class="sopa-seleccion" id="sopaSeleccion">Letras seleccionadas: <b>—</b></div><div class="fila sopa-botones"><button type="button" class="dos" id="sopaUndo">Borrar última</button><button type="button" class="dos" id="sopaClear">Limpiar</button><button type="button" id="v">Comprobar</button></div>`;
+  if(d.t=='logic'){const rooms=d.rooms||['Patio','Estudio','Biblioteca','Almacén'];w=`<div class="logic-grid">${Object.keys(d.assignments).map(person=>`<label>${person}<select data-person="${person}"><option value="">Elige estancia</option>${rooms.map(room=>`<option value="${room}">${room}</option>`).join('')}</select></label>`).join('')}</div>`;}
+  if(d.t=='cruz'){const mx=Math.max(...d.r.map(r=>r[2]));
+    w=d.r.map((r,j)=>`<div class="cr" data-j="${j}"><small>${r[0]}</small><div class="c" style="margin-left:${(mx-r[2])*36}px">${[...r[1]].map((c,x)=>`<input maxlength="1" aria-label="letra ${x+1}" class="${x==r[2]?'k':''}">`).join('')}</div></div>`).join('')}
+  const ent=(d.t=='cruz'||d.t=='logic'||d.t=='sopa')?'':`<div class="fila"><input type="text" id="r" autocomplete="off" aria-label="Tu respuesta"><button id="v">Comprobar</button></div>`;
+  const cesar=d.cesar?cesarExplica():'';
+  M.innerHTML=hud(i)+barra()+`<article class="hoja acertijo"><h2>${d.h}</h2><p>${d.q}</p>${cesar}${w}${ent}
+  ${(d.t=='cruz'||d.t=='logic')?'<div class="fila"><button id="v">Comprobar</button></div>':''}
+  <div class="fb" id="f" role="status"></div>${d.sinPista?'':'<div class="fila"><button class="dos" id="h">Pedir una pista</button></div>'}<div id="p"></div></article>`;
+  resultButton();
+  const f=document.getElementById('f');
+  if(d.t!=='sopa')document.querySelectorAll('table.g:not(.sopa-grid) td').forEach(t=>t.onclick=()=>t.classList.toggle('on'));
+  const pistaBtn=document.getElementById('h');if(pistaBtn)pistaBtn.onclick=()=>{document.getElementById('p').innerHTML=`<p class="pista">Pista: ${d.hint}</p>`};
+  const bien=()=>{prog=Math.max(prog,i+1);f.className='fb ok';f.textContent='¡Correcto!';setTimeout(()=>{i++;go()},900)};
+  const mal=t=>{f.className='fb mal';f.textContent=t};
+  if(d.t=='sopa'){
+    const celdas=[...document.querySelectorAll('.sopa-grid td')];
+    const salida=document.querySelector('#sopaSeleccion b');
+    let sel=[],resuelta=false;
+    const pinta=()=>{
+      celdas.forEach(t=>{t.classList.remove('on','sopa-error');t.removeAttribute('data-orden');t.setAttribute('aria-pressed','false')});
+      sel.forEach((t,n)=>{t.classList.add('on');t.dataset.orden=n+1;t.setAttribute('aria-pressed','true')});
+      salida.textContent=sel.length?sel.map(t=>t.textContent).join(' '):'—';
+    };
+    const alternar=t=>{if(resuelta)return;const k=sel.indexOf(t);if(k>=0)sel.splice(k,1);else sel.push(t);f.className='fb';f.textContent='';pinta()};
+    celdas.forEach(t=>{
+      t.setAttribute('aria-pressed','false');
+      t.onclick=()=>alternar(t);
+      t.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();alternar(t)}};
+    });
+    document.getElementById('sopaUndo').onclick=()=>{if(resuelta)return;sel.pop();f.className='fb';f.textContent='';pinta()};
+    document.getElementById('sopaClear').onclick=()=>{if(resuelta)return;sel=[];f.className='fb';f.textContent='';pinta()};
+    const enLinea=cs=>{
+      if(cs.length<2)return true;
+      const p=cs.map(t=>[+t.dataset.y,+t.dataset.x]);
+      const dy=p[1][0]-p[0][0],dx=p[1][1]-p[0][1];
+      if((!dy&&!dx)||Math.abs(dy)>1||Math.abs(dx)>1)return false;
+      return p.every((q,n)=>n===0||(q[0]-p[n-1][0]===dy&&q[1]-p[n-1][1]===dx));
+    };
+    document.getElementById('v').onclick=()=>{
+      if(resuelta)return;
+      if(!sel.length){mal('Pulsa primero las letras de la palabra.');return}
+      const palabra=N(sel.map(t=>t.textContent).join(''));
+      const alReves=[...palabra].reverse().join('');
+      const letrasOk=d.a.some(x=>N(x)===palabra||N(x)===alReves);
+      if(letrasOk&&enLinea(sel)){
+        resuelta=true;
+        sel.forEach(t=>{t.classList.remove('on');t.classList.add('sopa-ok')});
+        bien();
+      }else{
+        sel.forEach(t=>t.classList.add('sopa-error'));
+        mal(letrasOk?'Las letras son esas, pero no están seguidas en línea recta. Corrige la selección.':'Esa selección no es la palabra. Quita las letras que sobren o pulsa «Limpiar» y empieza de nuevo.');
+      }
+    };
+  }else if(d.t=='logic'){
+    document.getElementById('v').onclick=()=>{
+      const selects=[...document.querySelectorAll('.logic-grid select')];
+      const ok=selects.every(s=>s.value===d.assignments[s.dataset.person]) && new Set(selects.map(s=>s.value)).size===selects.length;
+      ok?bien():mal('Todavía hay alguna estancia mal asignada. Recuerda que no se repiten.');
+    };
+  }else if(d.t=='cruz'){
+    document.querySelectorAll('.cr input').forEach((inp,x,all)=>inp.addEventListener('input',()=>{if(inp.value&&all[x+1]&&all[x+1].parentNode===inp.parentNode)all[x+1].focus()}));
+    document.getElementById('v').onclick=()=>{let ok=true;
+      document.querySelectorAll('.cr').forEach(r=>{const v=[...r.querySelectorAll('input')].map(n=>n.value).join('');const g=N(v)==N(d.r[+r.dataset.j][1]);r.classList.toggle('bien',g);if(!g)ok=false});
+      ok?bien():mal('Alguna palabra no es correcta todavía. Las que están bien se marcan en verde.')};
+  }else{
+    const r=document.getElementById('r');
+    const chk=()=>d.a.some(x=>N(x)==N(r.value))?bien():mal(r.value.trim()?'Esa no es. Prueba otra vez o pide una pista.':'Escribe tu respuesta.');
+    document.getElementById('v').onclick=chk;r.addEventListener('keydown',e=>{if(e.key=='Enter')chk()});r.focus();
+  }
+}
+validarAcertijos();
+portada();
+</script>
+</body>
+</html>
